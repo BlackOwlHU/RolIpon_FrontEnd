@@ -1,0 +1,198 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(60, 60, 60);
+}
+
+header{
+    background-color: rgb(189, 189, 189);
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;/*függőleges igazítás*/
+    justify-content: space-between;/*vízszintes igazítás*/
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.menu-logo, .menu-logo-zold{
+    font-weight: 600;
+    font-size: 2rem;
+    text-transform: uppercase;
+    user-select: none;
+    text-shadow: 1px 1px 1px black;
+}
+
+.menu-logo-kek{
+    color:  #0091ff;
+}
+
+/* menü alapállapotban*/
+nav{
+    display: flex;
+    gap: 2rem;
+    font-size: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+}
+
+.icon-home, .icon-user, .icon-logout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    transition: ease 0.5s;
+}
+
+.icon-home{
+    background-color: rgb(189, 189, 189);
+}
+
+.icon-logout{
+    background-color: red;
+    color: white;
+}
+
+.icon-home:hover, .icon-user:hover, .icon-logout:hover{
+    transform: scale(1.1);
+}
+
+.icon-user{
+    background-color: #0091ff;
+}
+
+/*hamburger menü*/
+.hamburger-menu{
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    background-color: rgb(189, 189, 189);
+}
+
+.hamburger-menu span{
+    display: block;
+    height: 4px;
+    background-color: black;
+    border-radius: 2px;
+    width: 100%;
+}
+
+.menu-toggle{
+    display: none;
+}
+
+.menu-toggle:checked~nav{
+    display: flex;
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger-menu{
+        display: flex;
+    }
+    nav{
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        background-color: white;
+        padding: 10px;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        font-size: 1.5rem;
+        display: none;
+    }
+}
+
+/* tartalom ahol lesznek a képek */
+.container{
+    width: 100%;
+    max-width: 1800;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* sorminta */
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-evenly;
+}
+
+.fixed{
+    display: flex;
+    right: 3%;
+    top: 75%;
+    z-index: 1000;
+    cursor: pointer;
+    font-size: 5rem;
+    width: 65px;
+    height: 65px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30%;
+    position: fixed;
+    background-color: #0091ff;
+}
+
+.fixed:hover{
+    transform: scale(1.01);
+}
+
+.fixed i{
+    font-size: 2.5rem;
+    color: white;
+}
+
+/* a tartalom */
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 80vh;
+    gap: 40px;
+}
+
+.edit-button{
+    background-color: #0091ff;
+    width: 500px;
+    padding: 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    transition: ease 500ms;
+    text-align: center;
+}
+
+.edit-button button{
+    font-size: 1.5rem;
+    color: white;
+    background-color: inherit;
+    border: none;
+    cursor: inherit;
+}
+
+.edit-button:hover{
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 550px) {
+    .edit-button{
+        width: 300px;
+    }
+}

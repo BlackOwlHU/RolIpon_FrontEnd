@@ -1,0 +1,336 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(60, 60, 60);
+}
+
+header{
+    background-color: rgb(189, 189, 189);
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;/*függőleges igazítás*/
+    justify-content: space-between;/*vízszintes igazítás*/
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.menu-logo, .menu-logo-zold{
+    font-weight: 600;
+    font-size: 2rem;
+    text-transform: uppercase;
+    user-select: none;
+    text-shadow: 1px 1px 1px black;
+}
+
+.menu-logo-kek{
+    color:  #0091ff;
+}
+
+/* menü alapállapotban*/
+nav{
+    display: flex;
+    gap: 2rem;
+    font-size: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+}
+
+.icon-home, .icon-user, .icon-logout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    transition: ease 0.5s;
+}
+
+.icon-home{
+    background-color: #0091ff;
+}
+
+.icon-logout{
+    background-color: red;
+    color: white;
+}
+
+.icon-home:hover, .icon-user:hover, .icon-logout:hover{
+    transform: scale(1.1);
+}
+
+/*hamburger menü*/
+.hamburger-menu{
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    background-color: rgb(189, 189, 189);
+}
+
+.hamburger-menu span{
+    display: block;
+    height: 4px;
+    background-color: black;
+    border-radius: 2px;
+    width: 100%;
+}
+
+.menu-toggle{
+    display: none;
+}
+
+.menu-toggle:checked~nav{
+    display: flex;
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger-menu{
+        display: flex;
+    }
+    nav{
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        background-color: white;
+        padding: 10px;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        font-size: 1.5rem;
+        display: none;
+    }
+}
+
+/* tartalom ahol lesznek a képek */
+.container{
+    width: 100%;
+    max-width: 1800;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* sorminta */
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-evenly;
+}
+
+.card{
+    flex: 0 1 calc((100% - 40px) / 5);
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgb(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: ease 500ms;
+}
+
+.card:hover{
+    transform: scale(1.01);
+}
+
+.card img{
+    width: 100%;
+}
+
+.card-header{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.card-header img{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+.card-body{
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    border-radius: inherit;
+}
+
+.pic-div{
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.pic-div img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    object-fit: contain;
+}
+
+.card-footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+.card-footer span{
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.card-footer i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    font-size: 2.5rem;
+    background-color: silver;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: ease 500ms;
+}
+
+.card-footer i:hover{
+    transform: scale(1.01);
+}
+
+/*ha lájkoltam*/
+.like{
+    background-color: #17BD3E !important;
+}
+
+.fixed{
+    display: flex;
+    right: 3%;
+    top: 75%;
+    z-index: 1000;
+    cursor: pointer;
+    font-size: 5rem;
+    width: 65px;
+    height: 65px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30%;
+    position: fixed;
+    background-color: #0091ff;
+}
+
+.fixed:hover{
+    transform: scale(1.01);
+}
+
+.fixed i{
+    font-size: 2.5rem;
+    color: white;
+}
+
+.category{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    flex-grow: 1;
+}
+
+.row-category{
+    overflow: hidden;
+    max-height: 220px;
+}
+
+.category img{
+    max-width: 150px;
+    max-height: 150px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5px;
+}
+
+.category-name{
+    font-weight: bold;
+    color: black;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    font-size: 2rem;
+}
+
+.cat-cont{
+    background-color: white;
+}
+
+.brand-cont{
+    background-color: rgb(244, 244, 244);
+    overflow: hidden;
+}
+
+.brand{
+    display: block;
+    flex-grow: 1;
+    background-color: gray;
+}
+
+.brandSpan{
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 1100px) {
+    .card{
+        flex: 0 1 calc((100% - 40px) / 4);
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .card{
+        flex: 0 1 calc((100% - 40px) / 3);
+    }
+}
+
+@media screen and (max-width: 670px) {
+    .card{
+        flex: 0 1 calc((100% - 30px) / 2);
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .card{
+        flex: 0 1 calc((100% - 20px) / 1);
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .card{
+        flex: 0 1 calc((100% - 10px) / 1);
+    }
+}
