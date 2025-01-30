@@ -260,6 +260,14 @@ nav a {
     flex-grow: 1;
 }
 
+.category:hover{
+    cursor: pointer;
+}
+
+.category-selected{
+    background-color: #65b8f7;
+}
+
 .row-category{
     overflow: hidden;
     max-height: 220px;
@@ -296,6 +304,15 @@ nav a {
     display: block;
     flex-grow: 1;
     background-color: gray;
+    text-align: center;
+}
+
+.brand:hover{
+    cursor: pointer;
+}
+
+.brand-selected{
+    background-color: #65b8f7;
 }
 
 .brandSpan{

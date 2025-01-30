@@ -2,34 +2,59 @@ const iconUser = document.getElementsByClassName('icon-user')[0];
 const iconLogout = document.getElementsByClassName('icon-logout')[0];
 const iconPlus = document.getElementsByClassName('fixed')[0];
 const categories = document.getElementsByClassName('categories')[0];
+
+const row = document.getElementsByClassName('row-category')[0];
+const rowbrand = document.getElementsByClassName('row-brand')[0];
+
 let selectedCategory = null;
+let selectedBrand = null;
 
-window.addEventListener('DOMContentLoaded', getCategories);
-window.addEventListener('DOMContentLoaded', getBrands)
+window.addEventListener('DOMContentLoaded', () => {
+    getCategories();
+    getBrands();
+    getFilter();
+});
 
+// Lekéri a kategóriákat
 async function getCategories() {
     const res = await fetch('http://127.0.0.1:4000/api/filter/category', {
         method: 'GET',
         credentials: 'include'
     });
-
     const categoryList = await res.json();
     renderCategories(categoryList);
 }
 
+// Lekéri a márkákat
 async function getBrands() {
     const res = await fetch('http://127.0.0.1:4000/api/filter/brands', {
         method: 'GET',
         credentials: 'include'
     });
-    
     const brandList = await res.json();
     renderBrands(brandList);
 }
 
-async function getProducts(category, brand) {
-    console.log(category, brand);
-};
+async function getFilter() {
+    IsSelectedNull(selectedBrand, selectedCategory);
+
+    const url = `http://127.0.0.1:4000/api/products/getProducts/${selectedBrand}/${selectedCategory}`;
+
+    console.log(`Lekérdezés: ${url}`);
+    
+    const res = await fetch(url, {
+        method: 'GET',
+        credentials: 'include'
+    });
+
+    const productList = await res.json();
+    renderProducts(productList);
+}
+
+function IsSelectedNull(br, cat){
+    if(br === null) selectedBrand = 0;
+    if(cat === null) selectedCategory = 0;
+}
 
 iconLogout.addEventListener('click', logout);
 
@@ -48,43 +73,21 @@ async function logout() {
     }
 };
 
-function renderBrands(brandList){
-    const rowbrand = document.getElementsByClassName('row-brand')[0];
-    rowbrand.innerHTML = '';
-
-    for(const brand of brandList){
-        // brand div létrehozása
-        const brandDiv = document.createElement('div');
-        brandDiv.classList.add('brand');
-
-        // brandek kiírása
-        const brandSpan = document.createElement('span');
-        brandSpan.textContent = brand.brand;
-        //console.log(brand.brand);
-        brandSpan.classList.add('brandSpan');
-        
-        brandDiv.append(brandSpan);
-
-        rowbrand.append(brandDiv);
-    }
-}
-
-function renderCategories(categoryList){
-    const row = document.getElementsByClassName('row-category')[0];
+// Kategóriák megjelenítése
+function renderCategories(categoryList) {
     row.innerHTML = '';
 
-    for(const category of categoryList){
-        // category div létrehozása
+    categoryList.forEach(category => {
         const catDiv = document.createElement('div');
         catDiv.classList.add('category');
 
-        // category kép
+        // Kép hozzáadása
         const catImage = document.createElement('img');
         catImage.src = `http://127.0.0.1:4000/uploads/${category.image}`;
         catImage.alt = 'category';
         catDiv.append(catImage);
 
-        // category name
+        // Kategória neve
         const catSpan = document.createElement('span');
         catSpan.textContent = category.category;
         catSpan.classList.add('category-name');
@@ -92,8 +95,56 @@ function renderCategories(categoryList){
 
         row.append(catDiv);
 
-        catDiv.addEventListener('click', () => getProducts(category.category));
-    }
+        // Kattintás esemény
+        catDiv.addEventListener('click', () => {
+            selectedCategory = category.category_id;
+            getFilter(); // Frissítjük a termékeket az új filterekkel
+        });
+    });
+}
+
+// Márkák megjelenítése
+function renderBrands(brandList) {
+    rowbrand.innerHTML = '';
+
+    brandList.forEach(brand => {
+        const brandDiv = document.createElement('div');
+        brandDiv.classList.add('brand');
+
+        // Márka neve
+        const brandSpan = document.createElement('span');
+        brandSpan.textContent = brand.brand;
+        brandSpan.classList.add('brandSpan');
+
+        brandDiv.append(brandSpan);
+        rowbrand.append(brandDiv);
+
+        // Kattintás esemény
+        brandDiv.addEventListener('click', () => {
+            selectedBrand = brand.brand_id;
+            getFilter(); // Frissítjük a termékeket az új filterekkel
+        });
+    });
+}
+
+// Termékek megjelenítése
+function renderProducts(productList) {
+    const productContainer = document.getElementsByClassName('row-products')[0];
+    productContainer.innerHTML = '';
+
+    productList.forEach(product => {
+        const productDiv = document.createElement('div');
+        productDiv.classList.add('product');
+        productDiv.innerHTML = `
+            <h3>${product.product_name}</h3>
+            <p>Ár: ${product.price} Ft</p>
+            <p>Kategória: ${product.category_id}</p>
+            <p>Márka: ${product.brand_id}</p>
+            <img src="http://127.0.0.1:4000/uploads/${product.image}" alt="${product.product_name}">
+        `;
+
+        productContainer.append(productDiv);
+    });
 }
 
 iconUser.addEventListener('click', () => {
