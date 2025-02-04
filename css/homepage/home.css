@@ -216,6 +216,7 @@ nav a {
     border-radius: 30%;
     cursor: pointer;
     transition: ease 500ms;
+    margin-left: 20px;
 }
 
 .card-footer i:hover{
