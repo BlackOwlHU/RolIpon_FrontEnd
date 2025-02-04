@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RolIpon</title>
-    <link rel="shortcut icon" href="./images/meme1.jpg" type="image/x-icon">
-    <link rel="stylesheet" href="../css/profile/profile.css">
+    <title>MemeInvázió</title>
+    <link rel="shortcut icon" href="" type="image/x-icon">
+    <link rel="stylesheet" href="../css/profile/profileData.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body id="header">
-    <header>
+<body>
+    <header id="header">
         <div class="menu-logo">
             <span class="menu-logo-kek">Rol</span>Ipon
         </div>
@@ -22,7 +22,7 @@
         </label>
 
         <nav>
-            <a href="#header" class="icon-home">
+            <a href="#" class="icon-home">
                 <i class="fa-solid fa-house"></i>
             </a>
             <a href="#" class="icon-user">
@@ -33,24 +33,21 @@
             </a>
         </nav>
     </header>
-
-    <div class="fixed">
-        <i class="fa-solid fa-cart-shopping"></i>
-    </div>
-
     <main>
-        <div class="edit-button" id="editPost">
-            <button type="button">Szállítási és profil adatok módosítása</button>
+        <div class="cim">
+            Jelszó módosítása
         </div>
-        
-        <div class="edit-button" id="editPsw">
-            <button type="button">Jelszó módosítása</button>
+        <div class="input">
+            <input type="password" id="psw" placeholder="*********">
         </div>
-
-        <div class="edit-button" id="orders">
-            <button type="button">Rendeléseim</button>
+        <div class="input">
+            <input type="password" id="psw2" placeholder="*********">
+        </div>
+        <div class="edit-button">
+            <button type="button">Mentés</button>
         </div>
     </main>
-    <script src="../js/profile.js"></script>
+
+    <script src="../js/profilePsw.js"></script>
 </body>
 </html>
