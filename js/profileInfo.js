@@ -3,10 +3,32 @@ const iconHome = document.getElementsByClassName('icon-home')[0];
 const iconLogout = document.getElementsByClassName('icon-logout')[0];
 const btnDataSave = document.getElementById('dataSave');
 
-window.addEventListener('DOMContentLoaded', loadData);
+window.addEventListener('DOMContentLoaded', () => {loadData()});
 
 async function loadData() {
-    console.log("Majd kész lesz ez is");
+    const res = await fetch('http://127.0.0.1:4000/api/profile/getProfile', {
+        method: 'GET',
+        credentials: 'include'
+    })
+    if (!res.ok) {
+        console.error("Hiba az API hívásban");
+        return;
+    }
+    const data = await res.json();
+    console.log(data);
+    
+    renderCurrentData(data);
+}
+
+function renderCurrentData(data){
+    // HTML elemek kiválasztása
+    document.getElementById('username').value = data.username || "";
+    document.getElementById('firstname').value = data.firstname || "";
+    document.getElementById('surname').value = data.surname || "";
+    document.getElementById('city').value = data.city || "";
+    document.getElementById('postcode').value = data.postcode || "";
+    document.getElementById('address').value = data.address || "";
+    document.getElementById('tel').value = data.tel || "";
 }
 
 btnDataSave.addEventListener('click', SaveData);
