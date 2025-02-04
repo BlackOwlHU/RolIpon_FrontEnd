@@ -149,8 +149,6 @@ function renderProducts(productList) {
                 <div class="card-footer">
                 <p>Ár: ${product.price} Ft</p>
                 <i class="fa-solid fa-cart-shopping"></i>
-                <p>Kategória: ${product.category_id}</p>
-                <p>Márka: ${product.brand_id}</p>
                 </div>
             </div>
         `;
