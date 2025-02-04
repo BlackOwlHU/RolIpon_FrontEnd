@@ -41,7 +41,7 @@ async function getFilter() {
     const url = `http://127.0.0.1:4000/api/products/getProducts/${selectedBrand}/${selectedCategory}`;
 
     console.log(`Lekérdezés: ${url}`);
-    
+
     const res = await fetch(url, {
         method: 'GET',
         credentials: 'include'
@@ -51,9 +51,9 @@ async function getFilter() {
     renderProducts(productList);
 }
 
-function IsSelectedNull(br, cat){
-    if(br === null) selectedBrand = 0;
-    if(cat === null) selectedCategory = 0;
+function IsSelectedNull(br, cat) {
+    if (br === null) selectedBrand = 0;
+    if (cat === null) selectedCategory = 0;
 }
 
 iconLogout.addEventListener('click', logout);
@@ -65,10 +65,10 @@ async function logout() {
     });
 
     const data = await res.json();
-    if(res.ok){
+    if (res.ok) {
         alert(data.message);
-        window.location.href="../relog/index.html";
-    }else{
+        window.location.href = "../relog/index.html";
+    } else {
         alert('Hiba kijelentkezéskor');
     }
 };
@@ -138,17 +138,17 @@ function renderProducts(productList) {
         productDiv.innerHTML = `
             <div class="card">
                 <div class="card-header"></div>
-                <div class="card-body">
+                    <div class="card-body">
                         <div class="pic-div">
                             <img src="http://127.0.0.1:4000/uploads/${product.image}" alt="${product.product_name}">
                         </div>
+                    <div>
+                    <div class="card-footer">
                         <div>
                             <h3>${product.product_name}</h3>
+                            <p>Ár: ${product.price} Ft</p>
                         </div>
-                    </div>
-                <div class="card-footer">
-                <p>Ár: ${product.price} Ft</p>
-                <i class="fa-solid fa-cart-shopping"></i>
+                        <i class="fa-solid fa-cart-shopping" style="font-size: 24px"></i>
                 </div>
             </div>
         `;
