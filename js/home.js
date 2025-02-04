@@ -136,11 +136,23 @@ function renderProducts(productList) {
         const productDiv = document.createElement('div');
         productDiv.classList.add('product');
         productDiv.innerHTML = `
-            <h3>${product.product_name}</h3>
-            <p>Ár: ${product.price} Ft</p>
-            <p>Kategória: ${product.category_id}</p>
-            <p>Márka: ${product.brand_id}</p>
-            <img src="http://127.0.0.1:4000/uploads/${product.image}" alt="${product.product_name}">
+            <div class="card">
+                <div class="card-header"></div>
+                <div class="card-body">
+                        <div class="pic-div">
+                            <img src="http://127.0.0.1:4000/uploads/${product.image}" alt="${product.product_name}">
+                        </div>
+                        <div>
+                            <h3>${product.product_name}</h3>
+                        </div>
+                    </div>
+                <div class="card-footer">
+                <p>Ár: ${product.price} Ft</p>
+                <i class="fa-solid fa-cart-shopping"></i>
+                <p>Kategória: ${product.category_id}</p>
+                <p>Márka: ${product.brand_id}</p>
+                </div>
+            </div>
         `;
 
         productContainer.append(productDiv);
