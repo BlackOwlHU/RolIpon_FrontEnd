@@ -1,11 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>RolIpon - Szállítási adatok</title>
+    <link rel="shortcut icon" href="" type="image/x-icon">
+    <link rel="stylesheet" href="../css/profile/profileData.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+    <header id="header">
+        <div class="menu-logo">
+            <span class="menu-logo-kek">Rol</span>Ipon
+        </div>
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <nav>
+            <a href="#" class="icon-home">
+                <i class="fa-solid fa-house"></i>
+            </a>
+            <a href="#" class="icon-user">
+                <i class="fa-solid fa-user"></i>
+            </a>
+            <a href="#" class="icon-logout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </a>
+        </nav>
+    </header>
+    <main>
+        <div class="cim">
+            Szállítási adatok
+        </div>
+        <div class="input">
+            <input type="text" id="username" placeholder="Felhasználó név">
+        </div>
+
+        <div class="input">
+            <input type="text" id="Dearname" placeholder="Vezetéknév">
+        </div>
+
+        <div class="input">
+            <input type="text" id="Surname" placeholder="Vezetéknév">
+        </div>
+
+        <div class="input">
+            <input type="email" id="email" placeholder="E-mail cím">
+        </div>
+
+        <div class="input">
+            <input type="tel" id="phone" placeholder="Telefonszám">
+        </div>
+
+        <div class="input">
+            <input type="text" id="postalCode" placeholder="Irányítószám">
+        </div>
+
+        <div class="input">
+            <input type="text" id="city" placeholder="Város">
+        </div>
+
+        <div class="input">
+            <input type="text" id="address" placeholder="Utca, házszám">
+        </div>
     
+       
+
+        <div class="edit-button">
+            <button type="button">Mentés</button>
+        </div>
+    </main>
+    
+    
+    
+
+    <script src="../js/profilePsw.js"></script>
 </body>
 </html>
+
