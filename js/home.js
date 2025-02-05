@@ -1,6 +1,6 @@
 const iconUser = document.getElementsByClassName('icon-user')[0];
-const iconLogout = document.getElementsByClassName('icon-logout')[0];
 const iconPlus = document.getElementsByClassName('fixed')[0];
+const iconHome = document.getElementsByClassName('icon-home')[0];
 const categories = document.getElementsByClassName('categories')[0];
 
 const row = document.getElementsByClassName('row-category')[0];
@@ -40,7 +40,7 @@ async function getFilter() {
 
     const url = `http://127.0.0.1:4000/api/products/getProducts/${selectedBrand}/${selectedCategory}`;
 
-    console.log(`Lekérdezés: ${url}`);
+    //console.log(`Lekérdezés: ${url}`);
 
     const res = await fetch(url, {
         method: 'GET',
@@ -55,23 +55,6 @@ function IsSelectedNull(br, cat) {
     if (br === null) selectedBrand = 0;
     if (cat === null) selectedCategory = 0;
 }
-
-iconLogout.addEventListener('click', logout);
-
-async function logout() {
-    const res = await fetch('http://127.0.0.1:4000/api/auth/logout', {
-        method: 'POST',
-        credentials: 'include'
-    });
-
-    const data = await res.json();
-    if (res.ok) {
-        alert(data.message);
-        window.location.href = "../relog/index.html";
-    } else {
-        alert('Hiba kijelentkezéskor');
-    }
-};
 
 // Kategóriák megjelenítése
 function renderCategories(categoryList) {
@@ -145,7 +128,7 @@ function renderProducts(productList) {
                     <div>
                     <div class="card-footer">
                         <div>
-                            <h3>${product.product_name}</h3>
+                            <h3 onclick="productId(${product.product_id})">${product.product_name}</h3>
                             <p>Ár: ${product.price} Ft</p>
                         </div>
                         <i class="fa-solid fa-cart-shopping" style="font-size: 24px"></i>
@@ -156,6 +139,10 @@ function renderProducts(productList) {
         productContainer.append(productDiv);
     });
 }
+
+iconHome.addEventListener('click', () => {
+    window.location.href = '../homepage/home.html';
+});
 
 iconUser.addEventListener('click', () => {
     window.location.href = '../profile/profile.html';
