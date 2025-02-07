@@ -6,6 +6,9 @@ const categories = document.getElementsByClassName('categories')[0];
 const row = document.getElementsByClassName('row-category')[0];
 const rowbrand = document.getElementsByClassName('row-brand')[0];
 
+var IsItSelected = false;
+var IsItSelectedCheck = false;
+
 let selectedCategory = null;
 let selectedBrand = null;
 
@@ -36,11 +39,10 @@ async function getBrands() {
 }
 
 async function getFilter() {
-    IsSelectedNull(selectedBrand, selectedCategory);
+    const brandParam = selectedBrand || 0;
+    const categoryParam = selectedCategory || 0;
 
-    const url = `http://127.0.0.1:4000/api/products/getProducts/${selectedBrand}/${selectedCategory}`;
-
-    //console.log(`Lekérdezés: ${url}`);
+    const url = `http://127.0.0.1:4000/api/products/getProducts/${brandParam}/${categoryParam}`;
 
     const res = await fetch(url, {
         method: 'GET',
@@ -78,10 +80,24 @@ function renderCategories(categoryList) {
 
         row.append(catDiv);
 
+        // Ha ez a kiválasztott kategória, adjunk neki "selected" osztályt
+        if (selectedCategory === category.category_id) {
+            catDiv.classList.add('selected');
+        }
+
         // Kattintás esemény
         catDiv.addEventListener('click', () => {
-            selectedCategory = category.category_id;
-            getFilter(); // Frissítjük a termékeket az új filterekkel
+            if (selectedCategory === category.category_id) {
+                selectedCategory = null; // Ha már ki van választva, töröljük
+            } else {
+                selectedCategory = category.category_id;
+            }
+
+            // Frissítjük a kategóriák megjelenését
+            renderCategories(categoryList);
+
+            // Frissítjük a termékeket
+            getFilter();
         });
     });
 }
@@ -102,10 +118,24 @@ function renderBrands(brandList) {
         brandDiv.append(brandSpan);
         rowbrand.append(brandDiv);
 
+        // Ha ez a kiválasztott márka, adjunk neki "selected" osztályt
+        if (selectedBrand === brand.brand_id) {
+            brandDiv.classList.add('selected');
+        }
+
         // Kattintás esemény
         brandDiv.addEventListener('click', () => {
-            selectedBrand = brand.brand_id;
-            getFilter(); // Frissítjük a termékeket az új filterekkel
+            if (selectedBrand === brand.brand_id) {
+                selectedBrand = null; // Ha már ki van választva, töröljük
+            } else {
+                selectedBrand = brand.brand_id;
+            }
+
+            // Frissítjük a márkák megjelenését
+            renderBrands(brandList);
+
+            // Frissítjük a termékeket
+            getFilter();
         });
     });
 }
@@ -123,20 +153,21 @@ function renderProducts(productList) {
                 <div class="card-header"></div>
                     <div class="card-body">
                         <div class="pic-div">
-                            <img src="http://127.0.0.1:4000/uploads/${product.image}" alt="${product.product_name}">
+                            <img src="http://127.0.0.1:4000/uploads/${product.image}" alt="${product.product_name}"  class="selectItem" onclick="renderSelectedProduct(${product.product_id})">
                         </div>
                     <div>
                     <div class="card-footer">
                         <div>
-                            <h3 onclick="productId(${product.product_id})">${product.product_name}</h3>
+                            <h3 class="selectItem" onclick="renderSelectedProduct(${product.product_id})">${product.product_name}</h3>
                             <p>Ár: ${product.price} Ft</p>
                         </div>
                         <i class="fa-solid fa-cart-shopping" style="font-size: 24px"></i>
                 </div>
             </div>
         `;
-
-        productContainer.append(productDiv);
+        if(!IsItSelected){
+            productContainer.append(productDiv);
+        }
     });
 }
 
@@ -147,3 +178,62 @@ iconHome.addEventListener('click', () => {
 iconUser.addEventListener('click', () => {
     window.location.href = '../profile/profile.html';
 });
+
+async function renderSelectedProduct(product_id) {
+    IsItSelected = true;
+    IsItSelectedCheck = false; // Amikor egy új terméket kiválasztunk, visszaállítjuk
+
+    const productDivPage = document.getElementsByClassName('product-page-div')[0];
+    productDivPage.innerHTML = ''; // Az előző termék adatait töröljük
+
+    const res = await fetch(`http://127.0.0.1:4000/api/products/thisProduct/${product_id}`, {
+        method: 'GET',
+        credentials: 'include'
+    });
+
+    const selectedProduct = await res.json();
+
+    if(res.ok){
+        console.log(selectedProduct);
+    }else{
+        alert(selectedProduct.error)
+        window.location.href = '../homepage/home.html';
+        return;
+    }
+    
+    selectedProduct.forEach(product => {
+        productDivPage.innerHTML = `
+            <div class="product-page">
+                <div class="product-details">
+                    <h1>${product.product_name}</h1>
+                    <p><strong>Kategória:</strong> ${product.category_id}</p>
+                    <p><strong>Márka:</strong> ${product.brand_id}</p>
+                    <p class="price">${product.price} Ft</p>
+                    <p class="status">${product.is_in_stock}</p>
+                    <p><strong>Leírás:</strong> ${product.description}</p>
+                    <button class="buy-button">Hozzáadom a kosárhoz</button>
+                    <h4 onclick="BackToMain()" class="back">Vissza a termékekhez.</h4>
+                </div>
+                <div class="product-image-container">
+                    <img src="http://127.0.0.1:4000/uploads/${product.image}" alt="${product.product_name}" class="product-image">
+                </div>
+            </div>
+        `;
+    });
+
+    getBrands();
+    getCategories();
+    getFilter();
+}
+
+function BackToMain(){
+    IsItSelected = false;
+    IsItSelectedCheck = false; // Az állapot visszaállítása, hogy az elemek megjelenjenek újra
+
+    const productDivPage = document.getElementsByClassName('product-page-div')[0];
+    productDivPage.innerHTML = ''; // Eltávolítjuk az egyedi termék leírását
+
+    getBrands();
+    getCategories();
+    getFilter();
+}
