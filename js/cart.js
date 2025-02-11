@@ -2,6 +2,11 @@ const iconLogout = document.getElementsByClassName('icon-logout')[0];
 const iconUser = document.getElementsByClassName('icon-user')[0];
 const iconPlus = document.getElementsByClassName('fixed')[0];
 const iconHome = document.getElementsByClassName('icon-home')[0];
+const menulogo = document.getElementsByClassName ('menu-logo')[0];
+
+menulogo.addEventListener('click', ()=> {
+    window.location.href = '../homepage/home.html'
+})
 
 iconLogout.addEventListener('click', logout);
 
