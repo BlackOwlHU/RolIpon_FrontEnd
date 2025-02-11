@@ -506,6 +506,7 @@ nav a {
 
 .back{
     margin-top: 10px;
+    font-size: 1.25rem;
 }
 
 .back:hover{
@@ -514,4 +515,30 @@ nav a {
 
 .selectItem:hover{
     cursor: pointer;
+}
+
+.product-data{
+    margin-left: 20px;
+}
+
+.lowerMain{
+    margin-top: 165px;
+    padding: 35px;
+    background-color: black;
+    color: white;
+    height: 100%;
+}
+
+.elerhetoseg{
+    padding-bottom: 15px;
+}
+
+.elerhetoseg h5{
+    padding-left: 10px;
+    padding-top: 1px;
+    padding-bottom: 2px;
+}
+
+.info{
+    padding-bottom: 15px;
 }

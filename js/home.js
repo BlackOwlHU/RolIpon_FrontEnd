@@ -206,14 +206,17 @@ async function renderSelectedProduct(product_id) {
         productDivPage.innerHTML = `
             <div class="product-page">
                 <div class="product-details">
-                    <h1>${product.product_name}</h1>
-                    <p><strong>Kategória:</strong> ${product.category_id}</p>
-                    <p><strong>Márka:</strong> ${product.brand_id}</p>
-                    <p class="price">${product.price} Ft</p>
-                    <p class="status">${product.is_in_stock}</p>
-                    <p><strong>Leírás:</strong> ${product.description}</p>
-                    <button class="buy-button">Hozzáadom a kosárhoz</button>
                     <h4 onclick="BackToMain()" class="back">Vissza a termékekhez.</h4>
+                    <br>
+                    <div class="product-data">
+                        <h1>${product.product_name}</h1>
+                        <p><strong>Kategória:</strong> ${product.category}</p>
+                        <p><strong>Márka:</strong> ${product.brand}</p>
+                        <p class="price">${product.price} Ft</p>
+                        <p class="status">${product.is_in_stock == "1"? "Van raktáron.":"Nincs raktáron."}</p>
+                        <p><strong>Leírás:</strong> ${product.description}</p>
+                        <button class="buy-button">Hozzáadom a kosárhoz</button>
+                    </div>
                 </div>
                 <div class="product-image-container">
                     <img src="http://127.0.0.1:4000/uploads/${product.image}" alt="${product.product_name}" class="product-image">
