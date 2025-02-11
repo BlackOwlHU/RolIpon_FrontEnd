@@ -3,6 +3,7 @@ const iconHome = document.getElementsByClassName('icon-home')[0];
 const btnData = document.getElementById('editPost');
 const btnPsw = document.getElementById('editPsw');
 const btnOrders = document.getElementById('orders');
+const menulogo = document.getElementsByClassName ('menu-logo')[0]
 
 iconLogout.addEventListener('click', logout);
 
@@ -33,6 +34,10 @@ btnPsw.addEventListener('click', () => {
     window.location.href = '../profile/profilePsw.html';
 });
 
-btnOrders.addEventListener('click', () => {
+btnOrders.addEventListener('click', () => { 
     window.location.href = '../homepage/home.html';
 });
+
+menulogo.addEventListener('click', ()=> {
+    window.location.href = '../homepage/home.html'
+})

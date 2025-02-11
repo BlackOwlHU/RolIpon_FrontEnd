@@ -2,6 +2,7 @@ const iconUser = document.getElementsByClassName('icon-user')[0];
 const iconHome = document.getElementsByClassName('icon-home')[0];
 const iconLogout = document.getElementsByClassName('icon-logout')[0];
 const btnDataSave = document.getElementById('dataSave');
+const menulogo = document.getElementsByClassName ('menu-logo')[0]
 
 window.addEventListener('DOMContentLoaded', () => {loadData()});
 
@@ -83,3 +84,7 @@ async function logout() {
         alert('Hiba kijelentkezéskor');
     }
 };
+
+menulogo.addEventListener('click', ()=> {
+    window.location.href = '../homepage/home.html'
+})

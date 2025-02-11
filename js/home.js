@@ -2,6 +2,7 @@ const iconUser = document.getElementsByClassName('icon-user')[0];
 const iconPlus = document.getElementsByClassName('fixed')[0];
 const iconHome = document.getElementsByClassName('icon-home')[0];
 const categories = document.getElementsByClassName('categories')[0];
+const menulogo = document.getElementsByClassName ('menu-logo')[0]
 
 const row = document.getElementsByClassName('row-category')[0];
 const rowbrand = document.getElementsByClassName('row-brand')[0];
@@ -237,3 +238,7 @@ function BackToMain(){
     getCategories();
     getFilter();
 }
+
+menulogo.addEventListener('click', ()=> {
+    window.location.href = '../homepage/home.html'
+})
