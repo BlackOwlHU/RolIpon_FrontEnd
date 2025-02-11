@@ -149,3 +149,38 @@ nav a {
 .info{
     padding-bottom: 15px;
 }
+
+.cart-container {
+    width: 60%;
+    margin: auto;
+}
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 15px 0;
+}
+.cart-item img {
+    width: 100px;
+    height: auto;
+}
+.cart-summary {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cart-summary h3, .cart-summary a {
+    text-align: center;
+    width: 200px;
+    margin-left: auto;
+}
+
+.checkout-btn {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+}
