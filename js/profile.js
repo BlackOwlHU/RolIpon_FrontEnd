@@ -4,6 +4,11 @@ const btnData = document.getElementById('editPost');
 const btnPsw = document.getElementById('editPsw');
 const btnOrders = document.getElementById('orders');
 const menulogo = document.getElementsByClassName ('menu-logo')[0]
+const cart = document.getElementsByClassName('cart')[0];
+
+cart.addEventListener('click', () => {
+    window.location.href="../cart/cart.html";
+});
 
 iconLogout.addEventListener('click', logout);
 
