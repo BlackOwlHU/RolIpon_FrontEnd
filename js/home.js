@@ -4,6 +4,7 @@ const iconHome = document.getElementsByClassName('icon-home')[0];
 const categories = document.getElementsByClassName('categories')[0];
 const menulogo = document.getElementsByClassName ('menu-logo')[0];
 const iconLogout = document.getElementsByClassName('icon-logout')[0];
+const cart = document.getElementsByClassName('cart')[0];
 
 const row = document.getElementsByClassName('row-category')[0];
 const rowbrand = document.getElementsByClassName('row-brand')[0];
@@ -18,6 +19,10 @@ window.addEventListener('DOMContentLoaded', () => {
     getCategories();
     getBrands();
     getFilter();
+});
+
+cart.addEventListener('click', () => {
+    window.location.href="../cart/cart.html";
 });
 
 iconLogout.addEventListener('click', logout);

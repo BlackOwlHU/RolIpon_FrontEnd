@@ -28,6 +28,10 @@ header{
     text-shadow: 1px 1px 1px black;
 }
 
+.menu-logo:hover{
+    cursor: pointer;
+}
+
 .menu-logo-kek{
     color:  #0091ff;
 }

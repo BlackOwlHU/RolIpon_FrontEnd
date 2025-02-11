@@ -54,10 +54,6 @@ nav a {
     transition: ease 0.5s;
 }
 
-.icon-home{
-    background-color: rgb(189, 189, 189);
-}
-
 .icon-logout{
     background-color: red;
     color: white;
@@ -65,10 +61,6 @@ nav a {
 
 .icon-home:hover, .icon-user:hover, .icon-logout:hover{
     transform: scale(1.1);
-}
-
-.icon-user{
-    background-color: #0091ff;
 }
 
 /*hamburger menü*/
@@ -132,71 +124,24 @@ nav a {
     justify-content: space-evenly;
 }
 
-.fixed{
-    display: flex;
-    right: 3%;
-    top: 75%;
-    z-index: 1000;
-    cursor: pointer;
-    font-size: 5rem;
-    width: 65px;
-    height: 65px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 30%;
-    position: fixed;
-    background-color: #0091ff;
-}
-
-.fixed:hover{
-    transform: scale(1.01);
-}
-
-.fixed i{
-    font-size: 2.5rem;
+.lowerMain{
+    margin-top: 165px;
+    padding: 35px;
+    background-color: black;
     color: white;
+    height: 100%;
 }
 
-/* a tartalom */
-main{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 80vh;
-    gap: 40px;
+.elerhetoseg{
+    padding-bottom: 15px;
 }
 
-.edit-button{
-    background-color: #0091ff;
-    width: 500px;
-    padding: 15px;
-    border-radius: 20px;
-    cursor: pointer;
-    justify-content: center;
-    align-items: center;
-    transition: ease 500ms;
-    text-align: center;
+.elerhetoseg h5{
+    padding-left: 10px;
+    padding-top: 1px;
+    padding-bottom: 2px;
 }
 
-.edit-button button{
-    font-size: 1.5rem;
-    color: white;
-    background-color: inherit;
-    border: none;
-    cursor: inherit;
-}
-
-.edit-button:hover{
-    transform: scale(1.1);
-}
-
-@media screen and (max-width: 550px) {
-    .edit-button{
-        width: 300px;
-    }
-}
-
-.menu-logo:hover{
-    cursor: pointer;
+.info{
+    padding-bottom: 15px;
 }
