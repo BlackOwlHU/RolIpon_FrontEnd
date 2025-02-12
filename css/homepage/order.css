@@ -118,7 +118,7 @@ nav a {
 /* tartalom ahol lesznek a képek */
 .container{
     width: 100%;
-    max-width: 1800;
+    max-width: 1800px;
     margin: 0 auto;
     padding: 10px;
 }
@@ -129,6 +129,11 @@ nav a {
     flex-wrap: wrap;
     gap: 10px;
     justify-content: space-evenly;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
 }
 
 .lowerMain{
@@ -151,4 +156,34 @@ nav a {
 
 .info{
     padding-bottom: 15px;
+}
+
+.orderData{
+    background-color: aliceblue;
+    margin: 25px auto 25px auto;
+    border-radius: 15px;
+    font-weight: bold;
+    width: 90%;
+}
+
+.orderData h3, input{
+    padding-top: 15px;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+.orderData select, input{
+    width: 250px;
+    border-radius: 5px;
+    font-weight: bold;
+    border-width: 3px;
+}
+
+.orderData button{
+    margin-top: 10px;
+    background-color: #0091ff;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
 }
