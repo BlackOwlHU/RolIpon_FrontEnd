@@ -262,14 +262,6 @@ async function addToCart(product_id, quantity) {
         },
         body: JSON.stringify({product_id, quantity})
     });
-
-    const data = res.json();
-    if(res.ok){
-        alert(data.message);
-    }
-    else{
-        alert(data.error);
-    }
 };
 
 function BackToMain(){

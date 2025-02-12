@@ -48,7 +48,7 @@ function renderCart(cartData){
             <span>${item.product_name}</span>
             <input value="${item.quantity}" min="1" max="1000">
             <span>${item.total_price}</span>
-            <i class="fa-solid fa-trash" onclick="deleteFromCart(${item.cart_items_id})"></i>
+            <i class="fa-solid fa-trash trash" onclick="deleteFromCart(${item.cart_items_id})"></i>
         </div>`;
     });
     cartDiv.innerHTML += `<div class="cart-summary">
