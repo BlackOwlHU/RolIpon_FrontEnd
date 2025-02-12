@@ -53,7 +53,7 @@ function renderCart(cartData){
     });
     cartDiv.innerHTML += `<div class="cart-summary">
             <h3>Összesen: ${vegosszeg}</h3>
-            <a href="#" class="checkout-btn">Tovább a pénztárhoz</a>
+            <a href="#" class="checkout-btn" onclick="checkout()">Tovább a pénztárhoz</a>
         </div>`;
 }
 
@@ -102,3 +102,7 @@ iconHome.addEventListener('click', () => {
 iconUser.addEventListener('click', () => {
     window.location.href = '../profile/profile.html';
 });
+
+function checkout(){
+    window.location.href = '../cart/order.html';
+}

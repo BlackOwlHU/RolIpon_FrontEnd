@@ -1,0 +1,154 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(60, 60, 60);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header{
+    background-color: rgb(189, 189, 189);
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;/*függőleges igazítás*/
+    justify-content: space-between;/*vízszintes igazítás*/
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.menu-logo, .menu-logo-zold{
+    font-weight: 600;
+    font-size: 2rem;
+    text-transform: uppercase;
+    user-select: none;
+    text-shadow: 1px 1px 1px black;
+}
+
+.menu-logo:hover{
+    cursor: pointer;
+}
+
+.menu-logo-kek{
+    color:  #0091ff;
+}
+
+/* menü alapállapotban*/
+nav{
+    display: flex;
+    gap: 2rem;
+    font-size: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+}
+
+.icon-home, .icon-user, .icon-logout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    transition: ease 0.5s;
+}
+
+.icon-logout{
+    background-color: red;
+    color: white;
+}
+
+.icon-home:hover, .icon-user:hover, .icon-logout:hover{
+    transform: scale(1.1);
+}
+
+/*hamburger menü*/
+.hamburger-menu{
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    background-color: rgb(189, 189, 189);
+}
+
+.hamburger-menu span{
+    display: block;
+    height: 4px;
+    background-color: black;
+    border-radius: 2px;
+    width: 100%;
+}
+
+.menu-toggle{
+    display: none;
+}
+
+.menu-toggle:checked~nav{
+    display: flex;
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger-menu{
+        display: flex;
+    }
+    nav{
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        background-color: white;
+        padding: 10px;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        font-size: 1.5rem;
+        display: none;
+    }
+}
+
+/* tartalom ahol lesznek a képek */
+.container{
+    width: 100%;
+    max-width: 1800;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* sorminta */
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-evenly;
+}
+
+.lowerMain{
+    margin-top: auto;
+    padding: 35px;
+    background-color: black;
+    color: white;
+    height: 100%;
+}
+
+.elerhetoseg{
+    padding-bottom: 15px;
+}
+
+.elerhetoseg h5{
+    padding-left: 10px;
+    padding-top: 1px;
+    padding-bottom: 2px;
+}
+
+.info{
+    padding-bottom: 15px;
+}

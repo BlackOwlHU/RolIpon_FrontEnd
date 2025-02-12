@@ -217,6 +217,7 @@ nav a {
 .card-footer i{
     display: flex;
     justify-content: center;
+    color: white;
     align-items: center;
     padding: 8px;
     font-size: 2.5rem;
@@ -362,7 +363,6 @@ nav a {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Full screen height */
 }
 .product-page {
     display: flex;
@@ -373,6 +373,7 @@ nav a {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     max-width: 800px;
     width: 100%;
+    margin-bottom: 25px;
 }
 .product-details {
     flex: 1;
