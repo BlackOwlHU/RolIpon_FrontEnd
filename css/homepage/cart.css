@@ -7,6 +7,9 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgb(60, 60, 60);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header{
@@ -129,7 +132,7 @@ nav a {
 }
 
 .lowerMain{
-    margin-top: 165px;
+    margin-top: auto;
     padding: 35px;
     background-color: black;
     color: white;
@@ -151,12 +154,18 @@ nav a {
 }
 
 .cart-container {
-    width: 60%;
+    width: 80%;
     margin: auto;
+    background-color: whitesmoke;
+    padding: 50px;
+    margin-top: 25px;
+    margin-bottom: 35px;
+    border-radius: 15px;
+    font-weight: bold;
 }
 .cart-item {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     border-bottom: 1px solid #ccc;
     padding: 15px 0;
@@ -172,6 +181,15 @@ nav a {
     gap: 20px;
 }
 
+.cart-item input{
+    width: 50px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 5px 0 5px 0;
+    padding: 2px 0 2px 0;
+    font-weight: bold;
+}
+
 .cart-summary h3, .cart-summary a {
     text-align: center;
     width: 200px;
@@ -179,8 +197,27 @@ nav a {
 }
 
 .checkout-btn {
-    background-color: green;
+    background-color: #0091ff;
     color: white;
     padding: 10px;
     text-decoration: none;
+    border-radius: 25px;
+}
+
+.trash{
+    margin: 5px 0 5px 0;
+    font-size: 25px;
+}
+
+.trash:hover{
+    cursor: pointer;
+}
+
+@media screen and (max-width: 520px) {
+    .cart-item{
+        flex-direction: column;
+    }
+    .cart-summary{
+        flex-direction: column;
+    }
 }
