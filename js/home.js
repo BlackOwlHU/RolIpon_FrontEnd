@@ -185,7 +185,7 @@ function renderProducts(productList) {
                             <h3 class="selectItem" onclick="renderSelectedProduct(${product.product_id})">${product.product_name}</h3>
                             <p>Ár: ${product.price} Ft</p>
                         </div>
-                        <i class="fa-solid fa-cart-shopping" style="font-size: 24px"></i>
+                        <i class="fa-solid fa-cart-shopping" style="font-size: 24px" onclick="addToCart(${product.product_id},1)"></i>
                 </div>
             </div>
         `;
@@ -238,7 +238,7 @@ async function renderSelectedProduct(product_id) {
                         <p class="price">${product.price} Ft</p>
                         <p class="status">${product.is_in_stock == "1"? "Van raktáron.":"Nincs raktáron."}</p>
                         <p><strong>Leírás:</strong> ${product.description}</p>
-                        <button class="buy-button">Hozzáadom a kosárhoz</button>
+                        <button class="buy-button" onclick="addToCart(${product.product_id},1)">Hozzáadom a kosárhoz</button>
                     </div>
                 </div>
                 <div class="product-image-container">
@@ -252,6 +252,25 @@ async function renderSelectedProduct(product_id) {
     getCategories();
     getFilter();
 }
+
+async function addToCart(product_id, quantity) {
+    const res = await fetch('http://127.0.0.1:4000/api/cart/addCart', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({product_id, quantity})
+    });
+
+    const data = res.json();
+    if(res.ok){
+        alert(data.message);
+    }
+    else{
+        alert(data.error);
+    }
+};
 
 function BackToMain(){
     IsItSelected = false;

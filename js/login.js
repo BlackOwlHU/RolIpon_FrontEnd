@@ -1,4 +1,9 @@
 const btnLogin = document.getElementsByClassName('login')[0];
+const btnuserNotExist = document.getElementsByClassName('userNotExist')[0];
+
+btnuserNotExist.addEventListener('click', () => {
+    window.location.href = '../relog/register.html';
+});
 
 btnLogin.addEventListener('click', login);
 

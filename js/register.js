@@ -1,4 +1,9 @@
 const btnReg = document.getElementsByClassName('reg')[0];
+const btnExist = document.getElementsByClassName('userExist')[0];
+
+btnExist.addEventListener('click', () => {
+    window.location.href = '../relog/login.html';
+});
 
 btnReg.addEventListener('click', register);
 
