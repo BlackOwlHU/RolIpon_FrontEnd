@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rendelési adatok</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+
+
+<body id="header">
+    
+    <h2>Vásárlói adatok</h2>
+    <form>
+        <label for="type">Vásárló típusa:</label>
+        <select id="type">
+            <option value="maganszemely">Magánszemély</option>
+            <option value="vallalkozo">Cég / Egyéni vállalkozó</option>
+        </select>
+        <br>
+        <label for="vezeteknev">Vezetéknév:</label>
+        <input type="text" id="vezeteknev">
+        <label for="keresztnev">Keresztnév:</label>
+        <input type="text" id="keresztnev">
+        <br>
+    </form>
+    
+    <h2>Számlázási adatok</h2>
+    <form>
+        <label for="orszag">Ország:</label>
+        <select id="orszag">
+            <option value="magyarorszag">Magyarország</option>
+        </select>
+        <br>
+        <label for="varos">Város:</label>
+        <input type="text" id="varos">
+        <label for="iranyitoszam">Irányítószám:</label>
+        <input type="text" id="iranyitoszam">
+        <br>
+        <label for="cim">Utca, házszám:</label>
+        <input type="text" id="cim">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email">
+        <br>
+        <label for="telefon">Telefonszám:</label>
+        <input type="text" id="telefon">
+    </form>
+    
+    <h2>Átvételi mód</h2>
+    <form>
+        <input type="radio" id="gls" name="szallitas" checked>
+        <label for="gls">Házhozszállítással (GLS) - 1990 Ft</label>
+        <br>
+        <input type="radio" id="mpl" name="szallitas">
+        <label for="mpl">Magyar Posta házhozszállítással</label>
+        <br>
+        <input type="radio" id="szemelyes" name="szallitas">
+        <label for="szemelyes">Személyes átvétel - 1134 Budapest, Tüzér utca 13. (Ingyenes)</label>
+    </form>
+    
+    <h2>Fizetési mód</h2>
+    <form>
+        <input type="radio" id="utanvet" name="fizetes" checked>
+        <label for="utanvet">Átvételkor készpénzzel vagy bankkártyával (+499 Ft)</label>
+        <br>
+        <input type="radio" id="simplepay" name="fizetes">
+        <label for="simplepay">SimplePay / OTP Mobil bankkártyával online</label>
+        <br>
+        <input type="radio" id="bankkartya" name="fizetes">
+        <label for="bankkartya">Bankkártyával online</label>
+        <br>
+        <input type="radio" id="eloreutalas" name="fizetes">
+        <label for="eloreutalas">Előreutalással</label>
+    </form>
+    
+    <button type="submit">Megrendelés leadása</button>
+
+    <footer class="lowerMain">
+        <div class="row">
+            <div class="elerhetoseg">
+                <h4>Elérhetőségeink:</h4>
+                <h5>+06204206969</h5>
+                <h5>blackowlhu@gmail.com</h5>
+            </div>
+            <div class="info">
+                <h4>Totally safe shop.</h4>
+            </div>
+        </div>
+        <div class="row">
+            <h4>Minden jog fenntartva.</h4>
+        </div>
+    </footer>
+</body>
+</html>
