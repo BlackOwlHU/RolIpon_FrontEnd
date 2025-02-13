@@ -31,3 +31,30 @@ iconUser.addEventListener('click', () => {
 menulogo.addEventListener('click', ()=> {
     window.location.href = '../homepage/home.html'
 })
+
+window.addEventListener('DOMContentLoaded', () => {loadData()});
+
+async function loadData() {
+    const res = await fetch('http://127.0.0.1:4000/api/profile/getProfile', {
+        method: 'GET',
+        credentials: 'include'
+    })
+    if (!res.ok) {
+        console.error("Hiba az API hívásban");
+        return;
+    }
+    const data = await res.json();
+    
+    renderCurrentData(data);
+}
+
+function renderCurrentData(data){
+    // HTML elemek kiválasztása
+    document.getElementById('firstname').value = data.firstname || "";
+    document.getElementById('surname').value = data.surname || "";
+    document.getElementById('city').value = data.city || "";
+    document.getElementById('postcode').value = data.postcode || "";
+    document.getElementById('address').value = data.address || "";
+    document.getElementById('tel').value = data.tel || "";
+    document.getElementById('email').value = data.email || "";
+}

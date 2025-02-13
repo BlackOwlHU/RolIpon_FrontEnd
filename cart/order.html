@@ -42,11 +42,11 @@
             <div class="row">
                 <div class="column">
                     <h3>Vezetéknév</h3>
-                    <input placeholder="">
+                    <input id="firstname" type="text">
                     <h3>Keresztnév</h3>
-                    <input placeholder="">
+                    <input id="surname" type="text">
                     <h3>Telefonszám</h3>
-                    <input placeholder="">
+                    <input type="tel" id="tel" name="phone" placeholder="1234-456-7890" pattern="[0-9]{4}-[0-9]{3}-[0-9]{4}">
                     <h3>Fizetési mód</h3>
                     <select id="payingType">
                         <option value="utanvet">Utánvéttel (Készpénz / Bankkártya)</option>
@@ -65,13 +65,13 @@
                         <option value="vallalkozo">Cég / Egyéni vállalkozó</option>
                     </select>
                     <h3>Város</h3>
-                    <input>
+                    <input id="city">
                     <h3>Irányítószám</h3>
-                    <input>
+                    <input id="postcode" type="text">
                     <h3>Utca, házszám</h3>
-                    <input>
+                    <input id="address" type="text">
                     <h3>Email</h3>
-                    <input placeholder="">
+                    <input id="email">
                     <button>Rendelés véglegesítése.</button>
                 </div>
             </div>
