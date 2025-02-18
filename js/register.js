@@ -34,8 +34,9 @@ async function register() {
             title: `${data.message}`,
             icon: "success",
             draggable: true
-          });
-        window.location.href = '../relog/login.html';
+          }).then(() => {
+            window.location.href = '../relog/login.html';
+        });
     }else if (data.errors) {
         let errorMessage = '';
         for (let i = 0; i < data.errors.length; i++){

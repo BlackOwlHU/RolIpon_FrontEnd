@@ -1,3 +1,5 @@
+import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11/+esm';
+
 const btnLogin = document.getElementsByClassName('login')[0];
 const btnuserNotExist = document.getElementsByClassName('userNotExist')[0];
 
@@ -18,25 +20,41 @@ async function login() {
         headers: {
             'content-type': 'application/json'
         },
-        body: JSON.stringify({email, password}),
+        body: JSON.stringify({ email, password }),
         credentials: 'include'
     });
 
     const data = await res.json();
-    console.log(data);
 
-    if (res.ok){
-        alert(data.message);
-        window.location.href = '../../homepage/home.html';
-    }else if (data.errors) {
+    if (res.ok) {
+        Swal.fire({
+            title: `${data.message}`,
+            icon: "success",
+            draggable: true
+        }).then(() => {
+            window.location.href = '../../homepage/home.html';
+        });
+    } else if (data.errors) {
         let errorMessage = '';
-        for (let i = 0; i < data.errors.length; i++){
+        for (let i = 0; i < data.errors.length; i++) {
             errorMessage += `${data.errors[i].error}\n`;
         }
-        alert(errorMessage);
-    } else if (data.error){
-        alert(data.error);
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: `${errorMessage}`,
+        });
+    } else if (data.error) {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: `${data.error}`,
+        });
     } else {
-        alert('Ismeretlen hiba');
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Ismeretlen hiba",
+        });
     }
 }
