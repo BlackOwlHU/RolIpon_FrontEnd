@@ -1,10 +1,12 @@
+import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11/+esm';
+
 const iconUser = document.getElementsByClassName('icon-user')[0];
 const iconHome = document.getElementsByClassName('icon-home')[0];
 const iconLogout = document.getElementsByClassName('icon-logout')[0];
 const btnDataSave = document.getElementById('dataSave');
-const menulogo = document.getElementsByClassName ('menu-logo')[0]
+const menulogo = document.getElementsByClassName('menu-logo')[0]
 
-window.addEventListener('DOMContentLoaded', () => {loadData()});
+window.addEventListener('DOMContentLoaded', () => { loadData() });
 
 async function loadData() {
     const res = await fetch('http://127.0.0.1:4000/api/profile/getProfile', {
@@ -16,12 +18,11 @@ async function loadData() {
         return;
     }
     const data = await res.json();
-    console.log(data);
-    
+
     renderCurrentData(data);
 }
 
-function renderCurrentData(data){
+function renderCurrentData(data) {
     // HTML elemek kiválasztása
     document.getElementById('username').value = data.username || "";
     document.getElementById('firstname').value = data.firstname || "";
@@ -49,14 +50,23 @@ async function SaveData() {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({username, firstname, surname, city, postcode, address, tel})
+        body: JSON.stringify({ username, firstname, surname, city, postcode, address, tel })
     });
     const data = await res.json();
-    if(res.ok){
-        alert(data.message);
-        window.location.href="../profile/profile.html";
-    }else{
-        alert(data.error);
+    if (res.ok) {
+        Swal.fire({
+            title: `${data.message}`,
+            icon: "success",
+            draggable: true
+        }).then(() => {
+            window.location.href = "../profile/profile.html";
+        });
+    } else {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: `Hiba törléskor,${data.error}`,
+        });
     }
 }
 
@@ -77,13 +87,13 @@ async function logout() {
     });
 
     const data = await res.json();
-    if(res.ok){
-        window.location.href="../relog/index.html";
-    }else{
+    if (res.ok) {
+        window.location.href = "../relog/index.html";
+    } else {
         alert('Hiba kijelentkezéskor');
     }
 };
 
-menulogo.addEventListener('click', ()=> {
+menulogo.addEventListener('click', () => {
     window.location.href = '../homepage/home.html'
 })

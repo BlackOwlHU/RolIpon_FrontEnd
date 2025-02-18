@@ -32,9 +32,10 @@ function cartIsEmpty() {
             <img src="" alt="">
             <span></span>
             <span></span>
-        </div><div class="cart-summary">
+        </div>
+        <div class="cart-summary">
             <h3>Összesen: 0 Ft</h3>
-            <a href="#" class="back-to-btn">Vissza vásárláshoz</a>
+            <a href="../homepage/home.html" class="back-to-btn">Vissza vásárláshoz</a>
         </div>`;
 }
 
@@ -77,7 +78,6 @@ function renderCart(cartData) {
         });
     });
 }
-
 
 // Globálissá tesszük a függvényeket
 window.deleteFromCart = async function(cart_items_id) {
