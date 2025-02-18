@@ -1,3 +1,5 @@
+import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11/+esm';
+
 const btnReg = document.getElementsByClassName('reg')[0];
 const btnExist = document.getElementsByClassName('userExist')[0];
 
@@ -26,20 +28,35 @@ async function register() {
         body: JSON.stringify({username, email, password})
     });
     const data = await res.json();
-    console.log(data);
 
     if (res.ok){
-        alert(data.message);
+        Swal.fire({
+            title: `${data.message}`,
+            icon: "success",
+            draggable: true
+          });
         window.location.href = '../relog/login.html';
     }else if (data.errors) {
         let errorMessage = '';
         for (let i = 0; i < data.errors.length; i++){
             errorMessage += `${data.errors[i].error}\n`;
         }
-        alert(errorMessage);
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: `${errorMessage}`,
+          });
     } else if (data.error){
-        alert(data.error);
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: `${data.error}`,
+          });
     } else {
-        alert('Ismeretlen hiba');
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Ismeretlen hiba",
+          });
     }
 }
