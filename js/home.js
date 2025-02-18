@@ -1,8 +1,10 @@
+import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11/+esm';
+
 const iconUser = document.getElementsByClassName('icon-user')[0];
 const iconPlus = document.getElementsByClassName('fixed')[0];
 const iconHome = document.getElementsByClassName('icon-home')[0];
 const categories = document.getElementsByClassName('categories')[0];
-const menulogo = document.getElementsByClassName ('menu-logo')[0];
+const menulogo = document.getElementsByClassName('menu-logo')[0];
 const iconLogout = document.getElementsByClassName('icon-logout')[0];
 const cart = document.getElementsByClassName('cart')[0];
 
@@ -22,7 +24,7 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 cart.addEventListener('click', () => {
-    window.location.href="../cart/cart.html";
+    window.location.href = "../cart/cart.html";
 });
 
 iconLogout.addEventListener('click', logout);
@@ -34,11 +36,14 @@ async function logout() {
     });
 
     const data = await res.json();
-    if(res.ok){
-        alert(data.message);
-        window.location.href="../relog/index.html";
-    }else{
-        alert('Hiba kijelentkezéskor');
+    if (res.ok) {
+        window.location.href = "../relog/index.html";
+    } else {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Hiba történt a kijelentkezés során",
+        });
     }
 };
 
@@ -164,7 +169,6 @@ function renderBrands(brandList) {
     });
 }
 
-// Termékek megjelenítése
 function renderProducts(productList) {
     const productContainer = document.getElementsByClassName('row-products')[0];
     productContainer.innerHTML = '';
@@ -175,23 +179,38 @@ function renderProducts(productList) {
         productDiv.innerHTML = `
             <div class="card">
                 <div class="card-header"></div>
-                    <div class="card-body">
-                        <div class="pic-div">
-                            <img src="http://127.0.0.1:4000/uploads/${product.image}" alt="${product.product_name}"  class="selectItem" onclick="renderSelectedProduct(${product.product_id})">
-                        </div>
+                <div class="card-body">
+                    <div class="pic-div">
+                        <img src="http://127.0.0.1:4000/uploads/${product.image}" alt="${product.product_name}" class="selectItem">
+                    </div>
+                <div>
+                <div class="card-footer">
                     <div>
-                    <div class="card-footer">
-                        <div>
-                            <h3 class="selectItem" onclick="renderSelectedProduct(${product.product_id})">${product.product_name}</h3>
-                            <p>Ár: ${product.price} Ft</p>
-                        </div>
-                        <i class="fa-solid fa-cart-shopping" style="font-size: 24px" onclick="addToCart(${product.product_id},1)"></i>
+                        <h3 class="selectItem">${product.product_name}</h3>
+                        <p>Ár: ${product.price} Ft</p>
+                    </div>
+                    <i class="fa-solid fa-cart-shopping" style="font-size: 24px" data-product-id="${product.product_id}" data-quantity="1"></i>
                 </div>
             </div>
         `;
-        if(!IsItSelected){
+
+        productDiv.addEventListener('click', () => {
+            renderSelectedProduct(product.product_id);  // Meghívjuk a globálisan elérhető renderSelectedProduct függvényt
+        });
+
+        if (!IsItSelected) {
             productContainer.append(productDiv);
         }
+    });
+
+    // Add event listeners for the cart buttons
+    const cartIcons = document.querySelectorAll('.fa-cart-shopping');
+    cartIcons.forEach(icon => {
+        icon.addEventListener('click', (event) => {
+            const productId = event.target.getAttribute('data-product-id');
+            const quantity = event.target.getAttribute('data-quantity');
+            addToCart(productId, quantity);
+        });
     });
 }
 
@@ -217,35 +236,45 @@ async function renderSelectedProduct(product_id) {
 
     const selectedProduct = await res.json();
 
-    if(res.ok){
+    if (res.ok) {
         console.log(selectedProduct);
-    }else{
+    } else {
         alert(selectedProduct.error)
         window.location.href = '../homepage/home.html';
         return;
     }
-    
+
     selectedProduct.forEach(product => {
         productDivPage.innerHTML = `
-            <div class="product-page">
-                <div class="product-details">
-                    <h4 onclick="BackToMain()" class="back">Vissza a termékekhez.</h4>
-                    <br>
-                    <div class="product-data">
-                        <h1>${product.product_name}</h1>
-                        <p><strong>Kategória:</strong> ${product.category}</p>
-                        <p><strong>Márka:</strong> ${product.brand}</p>
-                        <p class="price">${product.price} Ft</p>
-                        <p class="status">${product.is_in_stock == "1"? "Van raktáron.":"Nincs raktáron."}</p>
-                        <p><strong>Leírás:</strong> ${product.description}</p>
-                        <button class="buy-button" onclick="addToCart(${product.product_id},1)">Hozzáadom a kosárhoz</button>
-                    </div>
-                </div>
-                <div class="product-image-container">
-                    <img src="http://127.0.0.1:4000/uploads/${product.image}" alt="${product.product_name}" class="product-image">
-                </div>
+    <div class="product-page">
+        <div class="product-details">
+            <h4 class="back">Vissza a termékekhez.</h4>
+            <br>
+            <div class="product-data">
+                <h1>${product.product_name}</h1>
+                <p><strong>Kategória:</strong> ${product.category}</p>
+                <p><strong>Márka:</strong> ${product.brand}</p>
+                <p class="price">${product.price} Ft</p>
+                <p class="status">${product.is_in_stock == "1" ? "Van raktáron." : "Nincs raktáron."}</p>
+                <p><strong>Leírás:</strong> ${product.description}</p>
+                <button class="buy-button" data-product-id="${product.product_id}" data-quantity="1">Hozzáadom a kosárhoz</button>
             </div>
-        `;
+        </div>
+        <div class="product-image-container">
+            <img src="http://127.0.0.1:4000/uploads/${product.image}" alt="${product.product_name}" class="product-image">
+        </div>
+    </div>
+`;
+
+        // A "Vissza" gomb eseménykezelése
+        document.querySelector('.back').addEventListener('click', BackToMain);
+
+        // Kosárba tétel eseménykezelése
+        document.querySelector('.buy-button').addEventListener('click', (event) => {
+            const productId = event.target.getAttribute('data-product-id');
+            const quantity = event.target.getAttribute('data-quantity');
+            addToCart(productId, quantity);
+        });
     });
 
     getBrands();
@@ -253,26 +282,34 @@ async function renderSelectedProduct(product_id) {
     getFilter();
 }
 
-async function addToCart(product_id, quantity) {
+window.addToCart = async function (product_id, quantity) {
     const res = await fetch('http://127.0.0.1:4000/api/cart/addCart', {
         method: 'POST',
         credentials: 'include',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({product_id, quantity})
+        body: JSON.stringify({ product_id, quantity })
     });
 
     const data = await res.json();
-    if(res.ok){
-        alert(data.message);
+    if (res.ok) {
+        Swal.fire({
+            title: `${data.message}`,
+            icon: "success",
+            draggable: true
+        });
     }
-    else{
-        alert(data.error);
+    else {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: `${data.error}`,
+        });
     }
 };
 
-function BackToMain(){
+window.BackToMain = function () {
     IsItSelected = false;
     IsItSelectedCheck = false; // Az állapot visszaállítása, hogy az elemek megjelenjenek újra
 
@@ -282,8 +319,24 @@ function BackToMain(){
     getBrands();
     getCategories();
     getFilter();
-}
+};
 
-menulogo.addEventListener('click', ()=> {
+// A termékhez való kosárba helyezés eseménykezelése
+document.querySelectorAll('.buy-button').forEach(button => {
+    button.addEventListener('click', (event) => {
+        const productId = event.target.getAttribute('data-product-id');
+        const quantity = event.target.getAttribute('data-quantity');
+        addToCart(productId, quantity);
+    });
+});
+
+// Visszalépés az alap termékekhez
+document.querySelectorAll('.back').forEach(backButton => {
+    backButton.addEventListener('click', () => {
+        BackToMain();
+    });
+});
+
+menulogo.addEventListener('click', () => {
     window.location.href = '../homepage/home.html'
 })

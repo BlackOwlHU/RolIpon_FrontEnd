@@ -25,39 +25,39 @@ async function register() {
         headers: {
             'content-type': 'application/json'
         },
-        body: JSON.stringify({username, email, password})
+        body: JSON.stringify({ username, email, password })
     });
     const data = await res.json();
 
-    if (res.ok){
+    if (res.ok) {
         Swal.fire({
             title: `${data.message}`,
             icon: "success",
             draggable: true
-          }).then(() => {
+        }).then(() => {
             window.location.href = '../relog/login.html';
         });
-    }else if (data.errors) {
+    } else if (data.errors) {
         let errorMessage = '';
-        for (let i = 0; i < data.errors.length; i++){
+        for (let i = 0; i < data.errors.length; i++) {
             errorMessage += `${data.errors[i].error}\n`;
         }
         Swal.fire({
             icon: "error",
             title: "Oops...",
             text: `${errorMessage}`,
-          });
-    } else if (data.error){
+        });
+    } else if (data.error) {
         Swal.fire({
             icon: "error",
             title: "Oops...",
             text: `${data.error}`,
-          });
+        });
     } else {
         Swal.fire({
             icon: "error",
             title: "Oops...",
             text: "Ismeretlen hiba",
-          });
+        });
     }
 }

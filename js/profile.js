@@ -20,7 +20,6 @@ async function logout() {
 
     const data = await res.json();
     if(res.ok){
-        alert(data.message);
         window.location.href="../relog/index.html";
     }else{
         alert('Hiba kijelentkezéskor');

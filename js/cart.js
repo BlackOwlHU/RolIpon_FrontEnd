@@ -1,8 +1,9 @@
+import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11/+esm';
+
 const iconLogout = document.getElementsByClassName('icon-logout')[0];
 const iconUser = document.getElementsByClassName('icon-user')[0];
-const iconPlus = document.getElementsByClassName('fixed')[0];
 const iconHome = document.getElementsByClassName('icon-home')[0];
-const menulogo = document.getElementsByClassName ('menu-logo')[0];
+const menulogo = document.getElementsByClassName('menu-logo')[0];
 const cartDiv = document.getElementsByClassName('cart-container')[0];
 
 var vegosszeg = 0;
@@ -16,15 +17,15 @@ async function cartItems() {
     });
 
     const cartData = await res.json();
-    if(res.ok){
+    if (res.ok) {
         renderCart(cartData);
     }
-    else{
+    else {
         cartIsEmpty();
     }
 }
 
-function cartIsEmpty(){
+function cartIsEmpty() {
     cartDiv.innerHTML = '';
     cartDiv.innerHTML = `<h2>Kosár</h2>
         <div class="cart-item">
@@ -37,27 +38,49 @@ function cartIsEmpty(){
         </div>`;
 }
 
-function renderCart(cartData){
+function renderCart(cartData) {
     cartDiv.innerHTML = '';
     vegosszeg = parseFloat(0);
     cartDiv.innerHTML += `<h2>Kosár</h2>`;
+    
+    // A kosárban lévő elemek törlésének eseménykezelése
     cartData.forEach(item => {
         vegosszeg += parseFloat(item.total_price);
-        cartDiv.innerHTML += `<div class="cart-item">
-            <img src="http://127.0.0.1:4000/uploads/${item.image}" alt="http://127.0.0.1:4000/uploads/${item.image}">
-            <span>${item.product_name}</span>
-            <input value="${item.quantity}" min="1" max="1000">
-            <span>${item.total_price}</span>
-            <i class="fa-solid fa-trash trash" onclick="deleteFromCart(${item.cart_items_id})"></i>
-        </div>`;
+        cartDiv.innerHTML += `
+            <div class="cart-item">
+                <img src="http://127.0.0.1:4000/uploads/${item.image}" alt="http://127.0.0.1:4000/uploads/${item.image}">
+                <span>${item.product_name}</span>
+                <input value="${item.quantity}" min="1" max="1000">
+                <span>${item.total_price}</span>
+                <i class="fa-solid fa-trash trash" data-cart-id="${item.cart_items_id}"></i>
+            </div>
+        `;
     });
     cartDiv.innerHTML += `<div class="cart-summary">
             <h3>Összesen: ${vegosszeg}</h3>
             <a href="#" class="checkout-btn" onclick="checkout()">Tovább a pénztárhoz</a>
         </div>`;
+
+    // Ellenőrizd, hogy van-e checkout gomb, mielőtt hozzáadod az eseménykezelőt
+    const checkoutBtn = document.querySelector('.checkout-btn');
+    if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', () => {
+            checkout();
+        });
+    }
+
+    // A törlés gomb eseménykezelése
+    document.querySelectorAll('.trash').forEach(trashIcon => {
+        trashIcon.addEventListener('click', (event) => {
+            const cartItemId = event.target.getAttribute('data-cart-id');
+            deleteFromCart(cartItemId);
+        });
+    });
 }
 
-async function deleteFromCart(cart_items_id) {
+
+// Globálissá tesszük a függvényeket
+window.deleteFromCart = async function(cart_items_id) {
     const res = await fetch(`http://127.0.0.1:4000/api/cart/removeCart/${cart_items_id}`, {
         method: 'DELETE',
         credentials: 'include',
@@ -65,16 +88,23 @@ async function deleteFromCart(cart_items_id) {
 
     const data = await res.json();
 
-    if(res.ok){
-        alert('Termék eltávolítva');
+    if (res.ok) {
+        Swal.fire({
+            title: "Sikeres törlés!",
+            icon: "success",
+            draggable: true
+        });
         cartItems();
-    }
-    else{
-        alert('Hiba törléskor', data.error);
+    } else {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: `Hiba törléskor,${data.error}`,
+        });
     }
 }
 
-menulogo.addEventListener('click', ()=> {
+menulogo.addEventListener('click', () => {
     window.location.href = '../homepage/home.html'
 })
 
@@ -87,10 +117,9 @@ async function logout() {
     });
 
     const data = await res.json();
-    if(res.ok){
-        alert(data.message);
-        window.location.href="../relog/index.html";
-    }else{
+    if (res.ok) {
+        window.location.href = "../relog/index.html";
+    } else {
         alert('Hiba kijelentkezéskor');
     }
 };
@@ -103,6 +132,6 @@ iconUser.addEventListener('click', () => {
     window.location.href = '../profile/profile.html';
 });
 
-function checkout(){
+window.checkout = function() {
     window.location.href = '../cart/order.html';
 }
