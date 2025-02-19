@@ -57,7 +57,7 @@ async function SaveData() {
         Swal.fire({
             title: `${data.message}`,
             icon: "success",
-            draggable: true
+            draggable: false
         }).then(() => {
             window.location.href = "../profile/profile.html";
         });
@@ -66,6 +66,7 @@ async function SaveData() {
             icon: "error",
             title: "Oops...",
             text: `Hiba törléskor,${data.error}`,
+            draggable: false
         });
     }
 }

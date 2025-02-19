@@ -92,7 +92,7 @@ window.deleteFromCart = async function(cart_items_id) {
         Swal.fire({
             title: "Sikeres törlés!",
             icon: "success",
-            draggable: true
+            draggable: false
         });
         cartItems();
     } else {
@@ -100,6 +100,7 @@ window.deleteFromCart = async function(cart_items_id) {
             icon: "error",
             title: "Oops...",
             text: `Hiba törléskor,${data.error}`,
+            draggable: false
         });
     }
 }

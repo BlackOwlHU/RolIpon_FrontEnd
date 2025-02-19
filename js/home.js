@@ -1,9 +1,7 @@
 import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11/+esm';
 
 const iconUser = document.getElementsByClassName('icon-user')[0];
-const iconPlus = document.getElementsByClassName('fixed')[0];
 const iconHome = document.getElementsByClassName('icon-home')[0];
-const categories = document.getElementsByClassName('categories')[0];
 const menulogo = document.getElementsByClassName('menu-logo')[0];
 const iconLogout = document.getElementsByClassName('icon-logout')[0];
 const cart = document.getElementsByClassName('cart')[0];
@@ -43,6 +41,7 @@ async function logout() {
             icon: "error",
             title: "Oops...",
             text: "Hiba történt a kijelentkezés során",
+            draggable: false
         });
     }
 };
@@ -297,7 +296,7 @@ window.addToCart = async function (product_id, quantity) {
         Swal.fire({
             title: `${data.message}`,
             icon: "success",
-            draggable: true
+            draggable: false
         });
     }
     else {
@@ -305,6 +304,7 @@ window.addToCart = async function (product_id, quantity) {
             icon: "error",
             title: "Oops...",
             text: `${data.error}`,
+            draggable: false
         });
     }
 };

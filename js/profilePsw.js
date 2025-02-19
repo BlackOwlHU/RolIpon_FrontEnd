@@ -27,7 +27,7 @@ async function editProfilePsw() {
             Swal.fire({
                 title: `${data.message}`,
                 icon: "success",
-                draggable: true
+                draggable: false
             }).then(() => {
                 logout();
             });
@@ -36,6 +36,7 @@ async function editProfilePsw() {
                 icon: "error",
                 title: "Oops...",
                 text: `${data.error}`,
+                draggable: false
             });
         }
     } else {
@@ -43,6 +44,7 @@ async function editProfilePsw() {
             icon: "error",
             title: "Oops...",
             text: "A két jelszó nem egyezik",
+            draggable: false
         });
     };
 };

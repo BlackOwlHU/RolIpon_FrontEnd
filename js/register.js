@@ -33,7 +33,7 @@ async function register() {
         Swal.fire({
             title: `${data.message}`,
             icon: "success",
-            draggable: true
+            draggable: false
         }).then(() => {
             window.location.href = '../relog/login.html';
         });
@@ -46,18 +46,21 @@ async function register() {
             icon: "error",
             title: "Oops...",
             text: `${errorMessage}`,
+            draggable: false
         });
     } else if (data.error) {
         Swal.fire({
             icon: "error",
             title: "Oops...",
             text: `${data.error}`,
+            draggable: false
         });
     } else {
         Swal.fire({
             icon: "error",
             title: "Oops...",
             text: "Ismeretlen hiba",
+            draggable: false
         });
     }
 }
