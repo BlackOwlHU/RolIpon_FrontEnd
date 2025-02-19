@@ -81,11 +81,6 @@ async function getFilter() {
     renderProducts(productList);
 }
 
-function IsSelectedNull(br, cat) {
-    if (br === null) selectedBrand = 0;
-    if (cat === null) selectedCategory = 0;
-}
-
 // Kategóriák megjelenítése
 function renderCategories(categoryList) {
     row.innerHTML = '';
