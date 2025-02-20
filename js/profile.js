@@ -39,7 +39,7 @@ btnPsw.addEventListener('click', () => {
 });
 
 btnOrders.addEventListener('click', () => { 
-    window.location.href = '../homepage/home.html';
+    window.location.href = '../profile/orders.html';
 });
 
 menulogo.addEventListener('click', ()=> {

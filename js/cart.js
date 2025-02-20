@@ -51,7 +51,11 @@ function renderCart(cartData) {
             <div class="cart-item">
                 <img src="http://127.0.0.1:4000/uploads/${item.image}" alt="http://127.0.0.1:4000/uploads/${item.image}">
                 <span>${item.product_name}</span>
-                <input value="${item.quantity}" min="1" max="1000">
+                <div class="quantity">
+                    <button class="quantityMinus" onclick="quantity(${item.cart_items_id},-1)">-</button>
+                    <input value="${item.quantity}" min="1" max="1000">
+                    <button class="quantityPlus" onclick="quantity(${item.cart_items_id},1)">+</button>
+                </div>
                 <span>${item.total_price}</span>
                 <i class="fa-solid fa-trash trash" data-cart-id="${item.cart_items_id}"></i>
             </div>
@@ -59,9 +63,9 @@ function renderCart(cartData) {
     });
     cartDiv.innerHTML += `<div class="cart-summary">
             <h3>Összesen: ${vegosszeg}</h3>
-            <a href="#" class="checkout-btn" onclick="checkout()">Tovább a pénztárhoz</a>
+            <a href="#" class="checkout-btn">Tovább a pénztárhoz</a>
         </div>`;
-
+    
     // Ellenőrizd, hogy van-e checkout gomb, mielőtt hozzáadod az eseménykezelőt
     const checkoutBtn = document.querySelector('.checkout-btn');
     if (checkoutBtn) {
@@ -135,4 +139,38 @@ iconUser.addEventListener('click', () => {
 
 window.checkout = function() {
     window.location.href = '../cart/order.html';
+}
+
+window.quantity = function(cart_items_id ,vonas){
+    const quantity = document.querySelector('.quantity input');
+    let quantityValue = parseInt(quantity.value);
+    let min = 1;
+    quantityValue += vonas;
+    quantity.value = quantityValue;
+    if(quantityValue < min){
+        quantity.value = min;
+    }
+    priceRefresh(cart_items_id ,quantity.value);
+}
+
+async function priceRefresh(cart_items_id ,quantity) {
+    const res = await fetch(`http://127.0.0.1:4000/api/cart/putQuantity/${cart_items_id}`, {
+        method: 'PUT',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({quantity})
+    });
+
+    if (res.ok) {
+        cartItems();
+    } else {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Hiba a módosításkor",
+            draggable: false
+        });
+    }
 }
