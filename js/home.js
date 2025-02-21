@@ -10,7 +10,6 @@ const row = document.getElementsByClassName('row-category')[0];
 const rowbrand = document.getElementsByClassName('row-brand')[0];
 
 var IsItSelected = false;
-var IsItSelectedCheck = false;
 
 let selectedCategory = null;
 let selectedBrand = null;
@@ -217,7 +216,6 @@ iconUser.addEventListener('click', () => {
 
 async function renderSelectedProduct(product_id) {
     IsItSelected = true;
-    IsItSelectedCheck = false; // Amikor egy új terméket kiválasztunk, visszaállítjuk
 
     const productDivPage = document.getElementsByClassName('product-page-div')[0];
     productDivPage.innerHTML = ''; // Az előző termék adatait töröljük
@@ -305,7 +303,6 @@ window.addToCart = async function (product_id, quantity) {
 
 window.BackToMain = function () {
     IsItSelected = false;
-    IsItSelectedCheck = false; // Az állapot visszaállítása, hogy az elemek megjelenjenek újra
 
     const productDivPage = document.getElementsByClassName('product-page-div')[0];
     productDivPage.innerHTML = ''; // Eltávolítjuk az egyedi termék leírását
