@@ -132,29 +132,18 @@ nav a {
     justify-content: space-evenly;
 }
 
-.fixed{
+.cart{
     display: flex;
-    right: 3%;
-    top: 75%;
-    z-index: 1000;
-    cursor: pointer;
-    font-size: 5rem;
-    width: 65px;
-    height: 65px;
-    align-items: center;
     justify-content: center;
-    border-radius: 30%;
-    position: fixed;
-    background-color: #0091ff;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    transition: ease 0.5s;
 }
 
-.fixed:hover{
-    transform: scale(1.01);
-}
-
-.fixed i{
-    font-size: 2.5rem;
-    color: white;
+.cart:hover{
+    transform: scale(1.05);
 }
 
 /* a tartalom */

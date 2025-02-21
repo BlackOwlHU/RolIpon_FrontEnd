@@ -25,6 +25,9 @@
             <a href="#header" class="icon-home">
                 <i class="fa-solid fa-house"></i>
             </a>
+            <a class="cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
             <a href="#" class="icon-user">
                 <i class="fa-solid fa-user"></i>
             </a>
@@ -35,7 +38,28 @@
     </header>
 
     <main>
+        <div class="container">
+            <div class="row">
+                <div class="order">
+                    <div class="data">Lakatos József</div>
+                    <div class="products data">
+                        <span>PS5 - 1 db</span>
+                        <span>PS4 Slim - 3 db</span>
+                        <span>Xbox 360 - 2 db</span>
+                        <span>500.000Ft</span>
+                    </div>
+                    <div class="data location">
+                        <div class="data">Debrecen</div>
+                        <div class="data">4200</div>
+                        <div class="data">Árpád u. 31.</div>
+                    </div>
+                    <div class="data">2024.09.27</div>
+                    <i class="fa-solid fa-trash trash data" data-cart-id="${item.cart_items_id}"></i>
+                </div>
+            </div>
+        </div>
     </main>
+
     <script src="../js/myorder.js"></script>
 </body>
 </html>

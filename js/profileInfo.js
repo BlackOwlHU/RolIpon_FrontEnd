@@ -5,6 +5,11 @@ const iconHome = document.getElementsByClassName('icon-home')[0];
 const iconLogout = document.getElementsByClassName('icon-logout')[0];
 const btnDataSave = document.getElementById('dataSave');
 const menulogo = document.getElementsByClassName('menu-logo')[0]
+const cart = document.getElementsByClassName('cart')[0];
+
+cart.addEventListener('click', () => {
+    window.location.href = "../cart/cart.html";
+});
 
 window.addEventListener('DOMContentLoaded', () => { loadData() });
 

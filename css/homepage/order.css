@@ -186,3 +186,18 @@ nav a {
     border-radius: 10px;
     font-weight: bold;
 }
+
+.cart{
+    background-color: #0091ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    transition: ease 0.5s;
+}
+
+.cart:hover{
+    transform: scale(1.05);
+}

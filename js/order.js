@@ -81,7 +81,6 @@ async function logout() {
         credentials: 'include'
     });
 
-    const data = await res.json();
     if(res.ok){
         window.location.href="../relog/index.html";
     }else{

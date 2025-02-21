@@ -54,10 +54,6 @@ nav a {
     transition: ease 0.5s;
 }
 
-.icon-home{
-    background-color: rgb(189, 189, 189);
-}
-
 .icon-logout{
     background-color: red;
     color: white;
@@ -118,10 +114,13 @@ nav a {
 
 /* tartalom ahol lesznek a képek */
 .container{
-    width: 100%;
+    width: 95%;
     max-width: 1800;
     margin: 0 auto;
     padding: 10px;
+    background-color: rgb(189, 189, 189);
+    border-radius: 15px;
+    border: 1px solid black;
 }
 
 /* sorminta */
@@ -132,29 +131,18 @@ nav a {
     justify-content: space-evenly;
 }
 
-.fixed{
+.cart{
     display: flex;
-    right: 3%;
-    top: 75%;
-    z-index: 1000;
-    cursor: pointer;
-    font-size: 5rem;
-    width: 65px;
-    height: 65px;
-    align-items: center;
     justify-content: center;
-    border-radius: 30%;
-    position: fixed;
-    background-color: #0091ff;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    transition: ease 0.5s;
 }
 
-.fixed:hover{
-    transform: scale(1.01);
-}
-
-.fixed i{
-    font-size: 2.5rem;
-    color: white;
+.cart:hover{
+    transform: scale(1.05);
 }
 
 /* a tartalom */
@@ -168,5 +156,65 @@ main{
 }
 
 .menu-logo:hover{
+    cursor: pointer;
+}
+
+.order{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    padding: 0.75rem;
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color: white;
+    max-width: 1800;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.products{
+    display: flex;
+    flex-direction: column;
+}
+
+.location{
+    display: flex;
+    flex-direction: column;
+}
+
+.data{
+    padding: 0 1rem 0 1rem;
+    gap: 10px;
+    font-size: large;
+}
+
+@media screen and (max-width: 620px) {
+    .order{
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        align-items: baseline;
+    }
+    .data{
+        padding-top: 0.5rem;
+    }
+    .products{
+        margin: auto;
+    }
+    .location{
+        flex-direction: row;
+    }
+    .trash{
+        margin: auto;
+    }
+}
+
+.trash{
+    font-size: 2rem;
+}
+
+.trash:hover{
     cursor: pointer;
 }

@@ -2,6 +2,11 @@ const iconUser = document.getElementsByClassName('icon-user')[0];
 const iconLogout = document.getElementsByClassName('icon-logout')[0];
 const iconHome = document.getElementsByClassName('icon-home')[0];
 const menulogo = document.getElementsByClassName ('menu-logo')[0]
+const cart = document.getElementsByClassName('cart')[0];
+
+cart.addEventListener('click', () => {
+    window.location.href = "../cart/cart.html";
+});
 
 iconLogout.addEventListener('click', logout);
 
@@ -23,7 +28,6 @@ async function logout() {
         credentials: 'include'
     });
 
-    const data = await res.json();
     if(res.ok){
         window.location.href="../relog/index.html";
     }else{
