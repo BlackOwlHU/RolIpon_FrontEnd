@@ -67,14 +67,14 @@ async function loadOrdersToPage(orders) {
 
         rowContainer.innerHTML += `
             <div class="order">
-                <div class="data"><strong>${order.username}</strong></div>
+                <div class="data"><strong>${order.firstname} ${order.surname}</strong></div>
                 <div class="products data">
                     ${orderItems.map(item => `<span>${item.product_name} - ${item.quantity} db</span>`).join('')}
                     <span>${order.total_amount} Ft</span>
                 </div>
                 <div class="data location">
                     <div class="data">${order.city}</div>
-                    <div class="data">${order.postal_code}</div>
+                    <div class="data">${order.postcode}</div>
                     <div class="data">${order.address}</div>
                 </div>
                 <div class="data">${formatDate(order.order_date)}</div>
@@ -95,7 +95,7 @@ async function loadOrdersToPage(orders) {
 // Rendelés törlése
 async function deleteOrder(orderId) {
     try {
-        const res = await fetch(`http://127.0.0.1:4000/api/order/delete/${orderId}`, {
+        const res = await fetch(`http://127.0.0.1:4000/api/order/deleteOrder/${orderId}`, {
             method: 'DELETE',
             credentials: 'include'
         });

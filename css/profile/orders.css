@@ -116,7 +116,7 @@ nav a {
 .container{
     width: 95%;
     max-width: 1800;
-    margin: 0 auto;
+    margin: 0 auto 0 auto;
     padding: 10px;
     background-color: rgb(189, 189, 189);
     border-radius: 15px;
@@ -199,7 +199,7 @@ main{
         align-items: baseline;
     }
     .data{
-        padding-top: 0.5rem;
+        padding: 0.5rem 0 0 0;
     }
     .products{
         margin: auto;
@@ -209,6 +209,9 @@ main{
     }
     .trash{
         margin: auto;
+    }
+    .container{
+        margin: 15rem auto 0 auto;
     }
 }
 
