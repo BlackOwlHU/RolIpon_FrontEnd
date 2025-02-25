@@ -1,6 +1,16 @@
 import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11/+esm';
 
 const iconLogout = document.getElementsByClassName('icon-logout')[0];
+const orders = document.getElementById('Orders');
+const products = document.getElementById('Products');
+
+orders.addEventListener('click', () => {
+    window.location.href="../admin/admin.html";
+});
+
+products.addEventListener('click', () => {
+    window.location.href="../admin/adminProduct.html";
+});
 
 iconLogout.addEventListener('click', logout);
 

@@ -29,20 +29,20 @@ async function login() {
     if (res.ok) {
         if(data.isAdmin === 1){
             Swal.fire({
-                title: `${data.message, data.isAdmin ? '1' : 'Admin bejelentkezve'}`,
+                title: `${data.message}\n ${data.isAdmin ? 'Admin bejelentkezve' : 'Ön nem admin, de beléphet.'}`,
                 icon: "success",
                 draggable: false
             }).then(() => {
                 window.location.href = '../../admin/admin.html';
             });
-        }
+        }else{
         Swal.fire({
             title: `${data.message}`,
             icon: "success",
             draggable: false
         }).then(() => {
             window.location.href = '../../homepage/home.html';
-        });
+        })};
     } else if (data.errors) {
         let errorMessage = '';
         for (let i = 0; i < data.errors.length; i++) {
