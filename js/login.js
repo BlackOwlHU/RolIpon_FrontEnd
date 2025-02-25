@@ -27,6 +27,15 @@ async function login() {
     const data = await res.json();
 
     if (res.ok) {
+        if(data.isAdmin === 1){
+            Swal.fire({
+                title: `${data.message, data.isAdmin ? '1' : 'Admin bejelentkezve'}`,
+                icon: "success",
+                draggable: false
+            }).then(() => {
+                window.location.href = '../../admin/admin.html';
+            });
+        }
         Swal.fire({
             title: `${data.message}`,
             icon: "success",

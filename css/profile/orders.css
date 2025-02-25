@@ -211,12 +211,16 @@ main{
         margin: auto;
     }
     .container{
-        margin: 15rem auto 0 auto;
+        margin: 20rem auto 0 auto;
     }
 }
 
 .trash{
     font-size: 2rem;
+    background-color: red;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
 }
 
 .trash:hover{
