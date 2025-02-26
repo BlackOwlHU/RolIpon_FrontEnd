@@ -306,5 +306,25 @@ nav a {
     padding: 15px;
 }
 
+.column{
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    margin: auto;
+    background-color: aliceblue;
+    padding: 2rem;
+    border-radius: 25px;
+    font-size: large;
+}
 
+.column label, button{
+    margin-top: 1rem;
+}
 
+.column button{
+    background-color: #0091ff;
+    color: white;
+    padding: 1rem;
+    border-radius: 25px;
+    font-size: larger;
+}

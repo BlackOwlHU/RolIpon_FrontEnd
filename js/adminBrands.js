@@ -3,6 +3,16 @@ import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11/+esm';
 const iconLogout = document.getElementsByClassName('icon-logout')[0];
 const orders = document.getElementById('Orders');
 const products = document.getElementById('Products');
+const category = document.getElementById('Category');
+const Brand = document.getElementById('Brand');
+
+Brand.addEventListener('click', () => {
+    window.location.href="../admin/adminBrand.html";
+});
+
+category.addEventListener('click', () => {
+    window.location.href="../admin/adminCategory.html";
+});
 
 orders.addEventListener('click', () => {
     window.location.href="../admin/admin.html";
