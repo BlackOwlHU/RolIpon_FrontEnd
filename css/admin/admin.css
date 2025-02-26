@@ -154,6 +154,11 @@ nav a {
     transform: scale(1.01);
 }
 
+.card p{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
 .card img{
     width: 100%;
 }
@@ -197,6 +202,8 @@ nav a {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    min-height: 120px;
+    min-width: 120px;
     max-width: 100%;
     max-height: 100%;
     width: auto;
@@ -215,20 +222,6 @@ nav a {
 .card-footer span{
     font-size: 3rem;
     font-weight: bold;
-}
-
-.card-footer i{
-    display: flex;
-    justify-content: center;
-    color: white;
-    align-items: center;
-    padding: 8px;
-    font-size: 2.5rem;
-    background-color: rgb(0, 153, 255);
-    border-radius: 30%;
-    cursor: pointer;
-    transition: ease 500ms;
-    margin-left: 20px;
 }
 
 .card-footer i:hover{
@@ -306,6 +299,12 @@ nav a {
     padding: 15px;
 }
 
+input, select{
+    font-size: large;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
 .column{
     display: flex;
     flex-direction: column;
@@ -327,4 +326,24 @@ nav a {
     padding: 1rem;
     border-radius: 25px;
     font-size: larger;
+}
+
+.trash{
+    font-size: 2rem;
+    background-color: red;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.trash:hover{
+    cursor: pointer;
+}
+
+.column h2{
+    cursor: pointer;
 }
