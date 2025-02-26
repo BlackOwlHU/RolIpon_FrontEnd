@@ -16,8 +16,8 @@ header{
     background-color: rgb(189, 189, 189);
     padding: 20px 30px;
     display: flex;
-    align-items: center;/*függőleges igazítás*/
-    justify-content: space-between;/*vízszintes igazítás*/
+    align-items: center;
+    justify-content: space-between;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -39,7 +39,7 @@ header{
     color:  #0091ff;
 }
 
-/* menü alapállapotban*/
+
 nav{
     display: flex;
     gap: 2rem;
@@ -74,7 +74,7 @@ nav a {
     transform: scale(1.1);
 }
 
-/*hamburger menü*/
+
 .hamburger-menu{
     display: none;
     flex-direction: column;
@@ -119,7 +119,7 @@ nav a {
     }
 }
 
-/* tartalom ahol lesznek a képek */
+
 .container{
     width: 100%;
     max-width: 1800;
@@ -127,7 +127,7 @@ nav a {
     padding: 10px;
 }
 
-/* sorminta */
+
 .row{
     display: flex;
     flex-wrap: wrap;
@@ -417,18 +417,18 @@ nav a {
 }
 
 .category.selected, .brand.selected {
-    background-color: #ffcc00; /* Sárga háttérszín */
-    color: #000; /* Fekete szöveg */
+    background-color: #ffcc00; 
+    color: #000; 
     font-weight: bold;
     border-radius: 8px;
     padding: 5px;
     transition: background-color 0.3s ease;
 }
 
-/* Kiválasztott kategória és márka kiemelése */
+
 .category.selected, .brand.selected {
-    background-color: #ffcc00 !important; /* Sárga háttérszín */
-    color: #000 !important; /* Fekete szöveg */
+    background-color: #ffcc00 !important; 
+    color: #000 !important;
     border: 2px solid black;
     font-weight: bold;
     border-radius: 8px;
@@ -436,32 +436,32 @@ nav a {
     transition: background-color 0.3s ease;
 }
 
-/* Kattintásra eltávolítható állapot */
+
 .category:not(.selected):hover, .brand:not(.selected):hover {
     background-color: #ddd;
 }
 
-/* Görgethető kategória és márkalista mobilon */
+
 @media (max-width: 768px) {
     .row-category, .row-brand {
         display: flex;
         flex-wrap: nowrap;
-        overflow-x: auto; /* Görgethetővé tesszük */
-        -webkit-overflow-scrolling: touch; /* Mobilbarát görgetés */
+        overflow-x: auto; 
+        -webkit-overflow-scrolling: touch; 
         padding: 5px 0;
     }
 
     .category, .brand {
-        min-width: 120px; /* Minimum szélesség, hogy lehessen görgetni */
+        min-width: 120px; 
         text-align: center;
         padding: 10px;
     }
 }
 
-/* Kategória és márka gombok fix méretre állítása */
+
 .category, .brand {
-    min-width: 150px; /* Minimális szélesség */
-    max-width: 150px; /* Maximális szélesség */
+    min-width: 150px; 
+    max-width: 150px; 
     padding: 5px;
     display: flex;
     flex-direction: column;
@@ -469,14 +469,14 @@ nav a {
     justify-content: center;
 }
 
-/* Kategória képek méretének korlátozása */
+
 .category img {
     width: 80px;
     height: 80px;
     object-fit: contain;
 }
 
-/* Szöveg méretének optimalizálása */
+
 .category-name, .brandSpan {
     font-size: 1.2rem;
     text-align: center;
@@ -486,7 +486,7 @@ nav a {
     max-width: 100%;
 }
 
-/* Mobilon a görgethető sávnál ne nyúljon ki */
+
 .row-category, .row-brand {
     overflow-x: auto;
     display: flex;
@@ -495,7 +495,7 @@ nav a {
     padding: 5px 0;
 }
 
-/* Görgetősáv eltüntetése */
+
 .row-category::-webkit-scrollbar, 
 .row-brand::-webkit-scrollbar {
     display: none;

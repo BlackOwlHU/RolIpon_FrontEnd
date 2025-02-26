@@ -16,8 +16,8 @@ header{
     background-color: rgb(189, 189, 189);
     padding: 20px 30px;
     display: flex;
-    align-items: center;/*függőleges igazítás*/
-    justify-content: space-between;/*vízszintes igazítás*/
+    align-items: center;
+    justify-content: space-between;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -35,7 +35,7 @@ header{
     color:  #0091ff;
 }
 
-/* menü alapállapotban*/
+
 nav{
     display: flex;
     gap: 2rem;
@@ -70,7 +70,7 @@ nav a {
     transform: scale(1.1);
 }
 
-/*hamburger menü*/
+
 .hamburger-menu{
     display: none;
     flex-direction: column;
@@ -115,7 +115,7 @@ nav a {
     }
 }
 
-/* tartalom ahol lesznek a képek */
+
 .container{
     width: 100%;
     max-width: 1800;
@@ -123,7 +123,7 @@ nav a {
     padding: 10px;
 }
 
-/* sorminta */
+
 .row{
     display: flex;
     flex-wrap: wrap;
