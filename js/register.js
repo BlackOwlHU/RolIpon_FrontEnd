@@ -15,7 +15,7 @@ async function register() {
     const password = document.getElementById('psw').value;
     const psw2 = document.getElementById('psw2').value;
 
-    console.log(email, username, password, psw2);
+    //console.log(email, username, password, psw2);
     if (password != psw2) {
         Swal.fire({
             icon: "error",

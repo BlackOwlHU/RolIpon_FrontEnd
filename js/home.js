@@ -228,7 +228,7 @@ async function renderSelectedProduct(product_id) {
     const selectedProduct = await res.json();
 
     if (res.ok) {
-        console.log(selectedProduct);
+        //console.log(selectedProduct);
     } else {
         alert(selectedProduct.error)
         window.location.href = '../homepage/home.html';
