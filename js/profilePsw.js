@@ -18,7 +18,7 @@ async function editProfilePsw() {
     const psw = document.getElementById('psw').value;
     const psw2 = document.getElementById('psw2').value;
     if (psw === psw2) {
-        const res = await fetch('http://127.0.0.1:4000/api/profile/editPassword', {
+        const res = await fetch('/api/profile/editPassword', {
             method: 'PUT',
             credentials: 'include',
             headers: {
@@ -64,7 +64,7 @@ iconHome.addEventListener('click', () => {
 iconLogout.addEventListener('click', logout);
 
 async function logout() {
-    const res = await fetch('http://127.0.0.1:4000/api/auth/logout', {
+    const res = await fetch('/api/auth/logout', {
         method: 'POST',
         credentials: 'include'
     });

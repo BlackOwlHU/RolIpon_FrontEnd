@@ -27,7 +27,7 @@ cart.addEventListener('click', () => {
 iconLogout.addEventListener('click', logout);
 
 async function logout() {
-    const res = await fetch('http://127.0.0.1:4000/api/auth/logout', {
+    const res = await fetch('/api/auth/logout', {
         method: 'POST',
         credentials: 'include'
     });
@@ -46,7 +46,7 @@ async function logout() {
 
 // Lekéri a kategóriákat
 async function getCategories() {
-    const res = await fetch('http://127.0.0.1:4000/api/filter/category', {
+    const res = await fetch('/api/filter/category', {
         method: 'GET',
         credentials: 'include'
     });
@@ -56,7 +56,7 @@ async function getCategories() {
 
 // Lekéri a márkákat
 async function getBrands() {
-    const res = await fetch('http://127.0.0.1:4000/api/filter/brands', {
+    const res = await fetch('/api/filter/brands', {
         method: 'GET',
         credentials: 'include'
     });
@@ -68,7 +68,7 @@ async function getFilter() {
     const brandParam = selectedBrand || 0;
     const categoryParam = selectedCategory || 0;
 
-    const url = `http://127.0.0.1:4000/api/products/getProducts/${brandParam}/${categoryParam}`;
+    const url = `/api/products/getProducts/${brandParam}/${categoryParam}`;
 
     const res = await fetch(url, {
         method: 'GET',
@@ -89,7 +89,7 @@ function renderCategories(categoryList) {
 
         // Kép hozzáadása
         const catImage = document.createElement('img');
-        catImage.src = `http://127.0.0.1:4000/uploads/${category.image}`;
+        catImage.src = `/uploads/${category.image}`;
         catImage.alt = 'category';
         catDiv.append(catImage);
 
@@ -173,7 +173,7 @@ function renderProducts(productList) {
                 <div class="card-header"></div>
                 <div class="card-body">
                     <div class="pic-div">
-                        <img src="http://127.0.0.1:4000/uploads/${product.image}" alt="${product.product_name}" class="selectItem">
+                        <img src="/uploads/${product.image}" alt="${product.product_name}" class="selectItem">
                     </div>
                 <div>
                 <div class="card-footer">
@@ -220,7 +220,7 @@ async function renderSelectedProduct(product_id) {
     const productDivPage = document.getElementsByClassName('product-page-div')[0];
     productDivPage.innerHTML = ''; // Az előző termék adatait töröljük
 
-    const res = await fetch(`http://127.0.0.1:4000/api/products/thisProduct/${product_id}`, {
+    const res = await fetch(`/api/products/thisProduct/${product_id}`, {
         method: 'GET',
         credentials: 'include'
     });
@@ -252,7 +252,7 @@ async function renderSelectedProduct(product_id) {
             </div>
         </div>
         <div class="product-image-container">
-            <img src="http://127.0.0.1:4000/uploads/${product.image}" alt="${product.product_name}" class="product-image">
+            <img src="/uploads/${product.image}" alt="${product.product_name}" class="product-image">
         </div>
     </div>
 `;
@@ -274,7 +274,7 @@ async function renderSelectedProduct(product_id) {
 }
 
 window.addToCart = async function (product_id, quantity) {
-    const res = await fetch('http://127.0.0.1:4000/api/cart/addCart', {
+    const res = await fetch('/api/cart/addCart', {
         method: 'POST',
         credentials: 'include',
         headers: {

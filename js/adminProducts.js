@@ -14,12 +14,12 @@ newItem.addEventListener('click', () => {renderNewProduct()});
 async function renderNewProduct() {
     showProducts.innerHTML = '';
     showNewProduct.innerHTML= '';
-    const res = await fetch('http://127.0.0.1:4000/api/filter/category', {
+    const res = await fetch('/api/filter/category', {
         method: 'GET',
         credentials: 'include'
     });
     const categoryList = await res.json();
-    const res2 = await fetch('http://127.0.0.1:4000/api/filter/brands', {
+    const res2 = await fetch('/api/filter/brands', {
         method: 'GET',
         credentials: 'include'
     });
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 async function getProducts() {
-    const res = await fetch('http://127.0.0.1:4000/api/products/getProducts/0/0', {
+    const res = await fetch('/api/products/getProducts/0/0', {
         method: 'GET',
         credentials: 'include'
     });
@@ -91,7 +91,7 @@ async function renderProducts(productList) {
             <div class="order card">
                 <div class="card-body">
                     <div class="pic-div">
-                        <img src="http://127.0.0.1:4000/uploads/${product.image}" alt="${product.product_name}" class="selectItem">
+                        <img src="/uploads/${product.image}" alt="${product.product_name}" class="selectItem">
                     </div>
                 <div>
                 <div class="card-footer">
@@ -128,7 +128,7 @@ products.addEventListener('click', () => {
 iconLogout.addEventListener('click', logout);
 
 async function logout() {
-    const res = await fetch('http://127.0.0.1:4000/api/auth/logout', {
+    const res = await fetch('/api/auth/logout', {
         method: 'POST',
         credentials: 'include'
     });

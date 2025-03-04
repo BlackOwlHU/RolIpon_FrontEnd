@@ -11,7 +11,7 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 
 async function loadOrders() {
-    const res = await fetch('http://127.0.0.1:4000/api/order/orders', {
+    const res = await fetch('/api/order/orders', {
         method: 'GET',
         credentials: 'include'
     });
@@ -58,7 +58,7 @@ async function loadOrdersToPage(orders) {
         const order_id = order.order_id;
 
         // Rendeléshez tartozó termékek lekérése
-        const res = await fetch(`http://127.0.0.1:4000/api/order/orderedItems/${order_id}`, {
+        const res = await fetch(`/api/order/orderedItems/${order_id}`, {
             method: 'GET',
             credentials: 'include'
         });
@@ -95,7 +95,7 @@ async function loadOrdersToPage(orders) {
 // Rendelés törlése
 async function deleteOrder(orderId) {
     try {
-        const res = await fetch(`http://127.0.0.1:4000/api/order/deleteOrder/${orderId}`, {
+        const res = await fetch(`/api/order/deleteOrder/${orderId}`, {
             method: 'DELETE',
             credentials: 'include'
         });
@@ -130,7 +130,7 @@ iconUser.addEventListener('click', () => {
 });
 
 async function logout() {
-    const res = await fetch('http://127.0.0.1:4000/api/auth/logout', {
+    const res = await fetch('/api/auth/logout', {
         method: 'POST',
         credentials: 'include'
     });

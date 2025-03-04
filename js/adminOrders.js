@@ -25,7 +25,7 @@ products.addEventListener('click', () => {
 iconLogout.addEventListener('click', logout);
 
 async function logout() {
-    const res = await fetch('http://127.0.0.1:4000/api/auth/logout', {
+    const res = await fetch('/api/auth/logout', {
         method: 'POST',
         credentials: 'include'
     });

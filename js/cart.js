@@ -11,7 +11,7 @@ var vegosszeg = 0;
 window.addEventListener('DOMContentLoaded', cartItems);
 
 async function cartItems() {
-    const res = await fetch('http://127.0.0.1:4000/api/cart/cart', {
+    const res = await fetch('/api/cart/cart', {
         method: 'GET',
         credentials: 'include'
     });
@@ -49,7 +49,7 @@ function renderCart(cartData) {
         vegosszeg += parseFloat(item.total_price);
         cartDiv.innerHTML += `
             <div class="cart-item">
-                <img src="http://127.0.0.1:4000/uploads/${item.image}" alt="http://127.0.0.1:4000/uploads/${item.image}">
+                <img src="/uploads/${item.image}" alt="/uploads/${item.image}">
                 <span>${item.product_name}</span>
                 <div class="quantity">
                     <button class="quantityMinus" onclick="quantity(${item.cart_items_id},-1)">-</button>
@@ -85,7 +85,7 @@ function renderCart(cartData) {
 
 // Globálissá tesszük a függvényeket
 window.deleteFromCart = async function(cart_items_id) {
-    const res = await fetch(`http://127.0.0.1:4000/api/cart/removeCart/${cart_items_id}`, {
+    const res = await fetch(`/api/cart/removeCart/${cart_items_id}`, {
         method: 'DELETE',
         credentials: 'include',
     });
@@ -116,7 +116,7 @@ menulogo.addEventListener('click', () => {
 iconLogout.addEventListener('click', logout);
 
 async function logout() {
-    const res = await fetch('http://127.0.0.1:4000/api/auth/logout', {
+    const res = await fetch('/api/auth/logout', {
         method: 'POST',
         credentials: 'include'
     });
@@ -153,7 +153,7 @@ window.quantity = function(cart_items_id ,vonas){
 }
 
 async function priceRefresh(cart_items_id ,quantity) {
-    const res = await fetch(`http://127.0.0.1:4000/api/cart/putQuantity/${cart_items_id}`, {
+    const res = await fetch(`/api/cart/putQuantity/${cart_items_id}`, {
         method: 'PUT',
         credentials: 'include',
         headers: {

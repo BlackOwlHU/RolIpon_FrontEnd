@@ -26,7 +26,7 @@ setOrder.addEventListener('click', async () => {
 
 async function getCartId() {
     try {
-        const res = await fetch('http://127.0.0.1:4000/api/profile/getProfile', {
+        const res = await fetch('/api/profile/getProfile', {
             method: 'GET',
             credentials: 'include'
         });
@@ -45,7 +45,7 @@ async function getCartId() {
 
 async function sendOrder(cart_id) {
     try {
-        const res = await fetch(`http://127.0.0.1:4000/api/order/createOrder/${cart_id}`, {
+        const res = await fetch(`/api/order/createOrder/${cart_id}`, {
             method: 'POST',
             credentials: 'include'
         });
@@ -76,7 +76,7 @@ async function sendOrder(cart_id) {
 iconLogout.addEventListener('click', logout);
 
 async function logout() {
-    const res = await fetch('http://127.0.0.1:4000/api/auth/logout', {
+    const res = await fetch('/api/auth/logout', {
         method: 'POST',
         credentials: 'include'
     });
@@ -103,7 +103,7 @@ menulogo.addEventListener('click', ()=> {
 window.addEventListener('DOMContentLoaded', () => {loadData()});
 
 async function loadData() {
-    const res = await fetch('http://127.0.0.1:4000/api/profile/getProfile', {
+    const res = await fetch('/api/profile/getProfile', {
         method: 'GET',
         credentials: 'include'
     })

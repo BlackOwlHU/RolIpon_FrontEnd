@@ -15,7 +15,7 @@ async function login() {
 
     //console.log(email, password);
 
-    const res = await fetch('http://127.0.0.1:4000/api/auth/login', {
+    const res = await fetch('/api/auth/login', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
