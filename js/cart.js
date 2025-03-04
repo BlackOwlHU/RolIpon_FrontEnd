@@ -122,7 +122,7 @@ async function logout() {
     });
 
     if (res.ok) {
-        window.location.href = "../relog/index.html";
+        window.location.href = "../index.html";
     } else {
         alert('Hiba kijelentkezéskor');
     }

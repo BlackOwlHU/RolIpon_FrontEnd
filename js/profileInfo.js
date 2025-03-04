@@ -94,7 +94,7 @@ async function logout() {
 
     const data = await res.json();
     if (res.ok) {
-        window.location.href = "../relog/index.html";
+        window.location.href = "../index.html";
     } else {
         alert('Hiba kijelentkezéskor');
     }
