@@ -17,7 +17,12 @@ async function register() {
 
     console.log(email, username, password, psw2);
     if (password != psw2) {
-        return alert('A két jelszó nem egyezik!');
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "A két jelszó nem egyezik!",
+            draggable: false
+        });
     }
 
     const res = await fetch('/api/auth/register', {
