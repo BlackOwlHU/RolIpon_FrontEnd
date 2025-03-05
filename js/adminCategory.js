@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function getCategories() {
-    const res = await fetch('/api/category', {
+    const res = await fetch('/api/filter/category', {
         method: 'GET',
         credentials: 'include'
     });
@@ -75,14 +75,14 @@ async function renderCategories(categoryList) {
     showCategories.innerHTML = '';
     showNewCategory.innerHTML = '';
 
-    categoryList.forEach(category => {
+    for (const category of categoryList) {
         showCategories.innerHTML += `
             <div class="order card">
                 <strong>Kategória: ${category.category}</strong>
                 <img src="/uploads/${category.image}" alt="${category.category}">
                 <i class="fa-solid fa-trash trash data" data-category-id="${category.id}"></i>
             </div>`;
-    
+    }
 
     document.querySelectorAll('.trash').forEach(icon => {
         icon.addEventListener('click', async (event) => {
@@ -90,7 +90,6 @@ async function renderCategories(categoryList) {
             await deleteCategory(categoryId);
         });
     });
-});
 }
 
 async function deleteCategory(categoryId) {
