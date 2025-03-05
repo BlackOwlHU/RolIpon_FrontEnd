@@ -79,7 +79,7 @@ async function renderCategories(categoryList) {
         showCategories.innerHTML += `
             <div class="order card">
                 <strong>Kategória: ${category.category}</strong>
-                <img src="https://nodejs.dszcbaross.edu.hu/server/95f964bc/files#/RolIpon_BackEnd/uploads${category.image}" alt="${category.category}">
+                <img src="/uploads/${category.image}" alt="${category.category}">
                 <i class="fa-solid fa-trash trash data" data-category-id="${category.id}"></i>
             </div>`;
     }
