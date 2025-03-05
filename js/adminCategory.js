@@ -27,10 +27,10 @@ async function renderNewCategoryForm() {
 }
 
 async function saveCategory() {
-    const name = document.getElementById('name').value;
+    const category = document.getElementById('name').value;
     const image = document.getElementById('image').files[0];
     const formData = new FormData();
-    formData.append('name', name);
+    formData.append('category', category);
     formData.append('image', image);
 
     const res = await fetch('/api/filter/newcategory', {
