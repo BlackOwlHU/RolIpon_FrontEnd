@@ -80,7 +80,7 @@ async function renderCategories(categoryList) {
             <div class="order card">
                 <strong>Kategória: ${category.category}</strong>
                 <img src="/uploads/${category.image}" alt="${category.category}">
-                <i class="fa-solid fa-trash trash data" data-category-id="${category.id}"></i>
+                <i class="fa-solid fa-trash trash data" data-category-id="${category.category_id}"></i>
             </div>`;
     }
 
