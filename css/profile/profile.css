@@ -54,10 +54,6 @@ nav a {
     transition: ease 0.5s;
 }
 
-.icon-home{
-    background-color: rgb(189, 189, 189);
-}
-
 .icon-logout{
     background-color: red;
     color: white;
