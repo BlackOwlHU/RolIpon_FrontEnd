@@ -146,7 +146,7 @@ nav a {
     transition: ease 500ms;
     width: fit-content;
     width: 300px;
-    height: 400px;
+    max-height: 350px;
 }
 
 .card:hover{
@@ -228,6 +228,7 @@ nav a {
     cursor: pointer;
     transition: ease 500ms;
     margin-left: 20px;
+    margin: auto;
 }
 
 .card-footer i:hover{
@@ -341,12 +342,17 @@ nav a {
     .card{
         flex: 0 1 calc((100% - 10px) / 2);
         width: 160px;
+        height: 240px;
+        font-size: 18px;
     }
 }
 
 @media screen and (max-width: 320px) {
     .card{
         flex: 0 1 calc((100% - 10px) / 1);
+        width: 250px;
+        height: auto;
+        font-size: 18px;
     }
 }
 
