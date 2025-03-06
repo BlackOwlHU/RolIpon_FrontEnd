@@ -146,7 +146,7 @@ nav a {
     transition: ease 500ms;
     width: fit-content;
     width: 300px;
-    max-height: 350px;
+    height: 350px;
 }
 
 .card:hover{
@@ -343,7 +343,16 @@ nav a {
         flex: 0 1 calc((100% - 10px) / 2);
         width: 160px;
         height: 240px;
-        font-size: 18px;
+    }
+    .card-header img{
+        width: 20px;
+        height: 20px;
+    }
+    .card-footer span{
+        font-size: 1rem;
+    }
+    .card-header{
+        font-size: 0.65rem;
     }
 }
 
@@ -353,6 +362,18 @@ nav a {
         width: 250px;
         height: auto;
         font-size: 18px;
+    }
+    .card-header img{
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        object-fit: cover;
+    }
+    .card-footer span{
+        font-size: 1rem;
+    }
+    .card-header{
+        font-size: 0.65rem;
     }
 }
 
