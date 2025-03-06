@@ -212,6 +212,10 @@ nav a {
     padding: 10px;
 }
 
+.card-footer h3{
+    font-size: 1rem;
+}
+
 .card-footer span{
     font-size: 3rem;
     font-weight: bold;
