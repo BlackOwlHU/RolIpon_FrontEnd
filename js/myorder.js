@@ -39,7 +39,7 @@ async function loadOrders() {
         Swal.fire({
             icon: "error",
             title: "Oops...",
-            text: "Üres a kosarad!",
+            text: "Nincs rendelésed!",
             draggable: false
         });
     }

@@ -411,6 +411,10 @@ nav a {
     background-color: #1e40af;
 }
 
+button:hover{
+    cursor: pointer;
+}
+
 .product-page-div{
     display: flex;
     justify-content: center;

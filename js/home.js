@@ -252,7 +252,7 @@ async function renderSelectedProduct(product_id) {
             </div>
         </div>
         <div class="product-image-container">
-            <img src="/uploads/${product.image}" alt="${product.product_name}" class="product-image">
+            <img src="/uploads/${product.product.image}" alt="${product.product_name}" class="product-image">
         </div>
     </div>
 `;

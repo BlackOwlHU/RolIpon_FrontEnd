@@ -347,3 +347,7 @@ input, select{
 .column h2{
     cursor: pointer;
 }
+
+button:hover{
+    cursor: pointer;
+}
