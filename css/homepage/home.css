@@ -145,6 +145,8 @@ nav a {
     overflow: hidden;
     transition: ease 500ms;
     width: fit-content;
+    width: 300px;
+    height: 400px;
 }
 
 .card:hover{
