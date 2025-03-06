@@ -107,10 +107,6 @@ async function deleteBrand(brandId) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    getCategories();
-});
-
 Brand.addEventListener('click', () => {
     window.location.href = "../admin/adminBrand.html";
 });
