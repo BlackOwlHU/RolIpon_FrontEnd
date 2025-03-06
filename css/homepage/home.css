@@ -340,6 +340,7 @@ nav a {
     .card{
         flex: 0 1 calc((100% - 15px) / 2);
         width: 180px;
+        height: 320px;
     }
 }
 
