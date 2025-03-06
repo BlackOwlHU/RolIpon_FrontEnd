@@ -72,7 +72,7 @@ async function saveProduct() {
     const description = document.getElementById('description').value;
     const image = document.getElementById('image').files[0];
     const formData = new FormData();
-    formData.append('name', name);
+    formData.append('product_name', name);
     formData.append('price', price);
     formData.append('is_in_stock', is_in_stock);
     formData.append('brand_id', brand_id);
