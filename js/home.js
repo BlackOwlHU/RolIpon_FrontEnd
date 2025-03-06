@@ -228,7 +228,7 @@ async function renderSelectedProduct(product_id) {
     const selectedProduct = await res.json();
 
     if (res.ok) {
-        //console.log(selectedProduct);
+        console.log(selectedProduct);
     } else {
         alert(selectedProduct.error)
         window.location.href = '../homepage/home.html';
@@ -252,7 +252,7 @@ async function renderSelectedProduct(product_id) {
             </div>
         </div>
         <div class="product-image-container">
-            <img src="/uploads/${product.product.image}" alt="${product.product_name}" class="product-image">
+            <img src="/uploads/${product.image}" alt="${product.product_name}" class="product-image">
         </div>
     </div>
 `;

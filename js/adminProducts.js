@@ -116,6 +116,7 @@ async function getProducts() {
     });
     const data = await res.json();
     renderProducts(data);
+    console.log(data);
 }
 
 async function renderProducts(productList) {
@@ -127,7 +128,7 @@ async function renderProducts(productList) {
             <div class="order card">
                 <div class="card-body">
                     <div class="pic-div">
-                        <img src="/uploads/${product.product.image}" alt="${product.product_name}" class="selectItem">
+                        <img src="/uploads/${product.image}" alt="${product.product_name}" class="selectItem">
                     </div>
                 <div>
                 <div class="card-footer">
