@@ -2,7 +2,7 @@ import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11/+esm';
 
 const iconHome = document.getElementsByClassName('icon-home')[0];
 const iconUser = document.getElementsByClassName('icon-user')[0];
-const menulogo = document.getElementsByClassName ('menu-logo')[0];
+const menulogo = document.getElementsByClassName('menu-logo')[0];
 const iconLogout = document.getElementsByClassName('icon-logout')[0];
 const setOrder = document.getElementById('orderCheck');
 
@@ -45,9 +45,18 @@ async function getCartId() {
 
 async function sendOrder(cart_id) {
     try {
+        const city = document.getElementById('city').value;
+        const address = document.getElementById('address').value;
+        const postcode = document.getElementById('postcode').value;
+        const tel = document.getElementById('tel').value;
+
         const res = await fetch(`/api/order/createOrder/${cart_id}`, {
             method: 'POST',
-            credentials: 'include'
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ city, address, postcode, tel })
         });
 
         const data = await res.json();
@@ -81,12 +90,12 @@ async function logout() {
         credentials: 'include'
     });
 
-    if(res.ok){
-        window.location.href="../index.html";
-    }else{
+    if (res.ok) {
+        window.location.href = "../index.html";
+    } else {
         alert('Hiba kijelentkezéskor');
     }
-};
+}
 
 iconHome.addEventListener('click', () => {
     window.location.href = '../homepage/home.html';
@@ -96,27 +105,27 @@ iconUser.addEventListener('click', () => {
     window.location.href = '../profile/profile.html';
 });
 
-menulogo.addEventListener('click', ()=> {
-    window.location.href = '../homepage/home.html'
-})
+menulogo.addEventListener('click', () => {
+    window.location.href = '../homepage/home.html';
+});
 
-window.addEventListener('DOMContentLoaded', () => {loadData()});
+window.addEventListener('DOMContentLoaded', () => { loadData() });
 
 async function loadData() {
     const res = await fetch('/api/profile/getProfile', {
         method: 'GET',
         credentials: 'include'
-    })
+    });
     if (!res.ok) {
         console.error("Hiba az API hívásban");
         return;
     }
     const data = await res.json();
-    
+
     renderCurrentData(data);
 }
 
-function renderCurrentData(data){
+function renderCurrentData(data) {
     // HTML elemek kiválasztása
     document.getElementById('firstname').value = data.firstname || "";
     document.getElementById('surname').value = data.surname || "";
