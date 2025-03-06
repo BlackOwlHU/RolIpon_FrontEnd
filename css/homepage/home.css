@@ -359,6 +359,12 @@ nav a {
     .card-header{
         font-size: 0.3rem;
     }
+    .card-footer h3{
+        font-size: 0.75rem;
+    }
+    .card-footer p{
+        font-size: 0.65rem;
+    }
 }
 
 @media screen and (max-width: 320px) {
@@ -376,6 +382,12 @@ nav a {
     }
     .card-header{
         font-size: 0.3rem;
+    }
+    .card-footer h3{
+        font-size: 0.75rem;
+    }
+    .card-footer p{
+        font-size: 0.65rem;
     }
 }
 
