@@ -173,7 +173,8 @@ nav a {
 .cart-item img {
     width: 100px;
     height: auto;
-    text-align: left;
+    text-align: center;
+    justify-content: center;
 }
 .cart-summary {
     margin-top: 20px;
@@ -183,7 +184,8 @@ nav a {
 }
 
 .cart-item span{
-    text-align: right;
+    text-align: center;
+    justify-content: center;
 }
 
 .cart-item input{
@@ -194,6 +196,7 @@ nav a {
     padding: 0.75rem 1rem 0.75rem 1rem;
     font-weight: bold;
     text-align: center;
+    justify-content: center;
 }
 
 .cart-summary h3, .cart-summary a {
@@ -213,8 +216,8 @@ nav a {
 .trash{
     margin: 5px 0 5px 0;
     font-size: 25px;
-    text-align: right;
-    justify-content: right;
+    text-align: center;
+    justify-content: center;
 }
 
 .trash:hover{
@@ -230,6 +233,9 @@ nav a {
     }
     .quantity{
         flex-direction: column;
+    }
+    .cart-item span{
+        text-align: center
     }
 }
 
@@ -253,7 +259,8 @@ nav a {
 
 .quantity{
     flex-direction: row;
-    text-align: right;
+    text-align: center;
+    justify-content: center;
 }
 
 .cart{
