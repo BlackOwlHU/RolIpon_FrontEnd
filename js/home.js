@@ -115,7 +115,6 @@ function renderCategories(categoryList) {
     });
 }
 
-// Márkák megjelenítése
 function renderBrands(brandList) {
     rowbrand.innerHTML = '';
 

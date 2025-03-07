@@ -240,7 +240,7 @@ nav a {
     transform: scale(1.01);
 }
 
-.cart{
+.cart2{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -250,7 +250,7 @@ nav a {
     transition: ease 0.5s;
 }
 
-.cart:hover{
+.cart2:hover{
     transform: scale(1.05);
     cursor: pointer;
 }
