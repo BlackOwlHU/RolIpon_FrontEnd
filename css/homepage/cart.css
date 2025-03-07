@@ -173,12 +173,17 @@ nav a {
 .cart-item img {
     width: 100px;
     height: auto;
+    text-align: left;
 }
 .cart-summary {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+.cart-item span{
+    text-align: right;
 }
 
 .cart-item input{
@@ -189,10 +194,6 @@ nav a {
     padding: 0.75rem 1rem 0.75rem 1rem;
     font-weight: bold;
     text-align: center;
-}
-
-.cart-item span{
-    text-align: right;
 }
 
 .cart-summary h3, .cart-summary a {
@@ -212,6 +213,8 @@ nav a {
 .trash{
     margin: 5px 0 5px 0;
     font-size: 25px;
+    text-align: right;
+    justify-content: right;
 }
 
 .trash:hover{
@@ -250,8 +253,7 @@ nav a {
 
 .quantity{
     flex-direction: row;
-    display: flex;
-    justify-content: center;
+    text-align: right;
 }
 
 .cart{
