@@ -41,6 +41,8 @@ async function loadOrders() {
             title: "Oops...",
             text: "Nincs rendelésed!",
             draggable: false
+        }).then(() => {
+            window.location.href = '../profile/profile.html';
         });
     }
 }

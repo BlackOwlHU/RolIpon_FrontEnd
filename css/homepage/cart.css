@@ -191,6 +191,10 @@ nav a {
     text-align: center;
 }
 
+.cart-item span{
+    text-align: right;
+}
+
 .cart-summary h3, .cart-summary a {
     text-align: center;
     width: 200px;
@@ -246,6 +250,8 @@ nav a {
 
 .quantity{
     flex-direction: row;
+    display: flex;
+    justify-content: center;
 }
 
 .cart{
