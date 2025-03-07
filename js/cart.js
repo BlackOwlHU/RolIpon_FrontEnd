@@ -62,7 +62,7 @@ function renderCart(cartData) {
         `;
     });
     cartDiv.innerHTML += `<div class="cart-summary">
-            <h3>Összesen: ${vegosszeg}</h3>
+            <h3>Összesen: ${vegosszeg} Ft</h3>
             <a href="#" class="checkout-btn">Tovább a pénztárhoz</a>
         </div>`;
     
