@@ -49,6 +49,8 @@ async function sendOrder(cart_id) {
         const address = document.getElementById('address').value;
         const postcode = document.getElementById('postcode').value;
         const tel = document.getElementById('tel').value;
+        console.log(city, address, postcode, tel);
+        
 
         const res = await fetch(`/api/order/createOrder/${cart_id}`, {
             method: 'POST',
