@@ -4,7 +4,7 @@ const iconUser = document.getElementsByClassName('icon-user')[0];
 const iconHome = document.getElementsByClassName('icon-home')[0];
 const menulogo = document.getElementsByClassName('menu-logo')[0];
 const iconLogout = document.getElementsByClassName('icon-logout')[0];
-const cart = document.getElementsByClassName('cart')[0];
+const cart2 = document.getElementsByClassName('cart2')[0];
 
 const row = document.getElementsByClassName('row-category')[0];
 const rowbrand = document.getElementsByClassName('row-brand')[0];
@@ -20,7 +20,7 @@ window.addEventListener('DOMContentLoaded', () => {
     getFilter();
 });
 
-cart.addEventListener('click', () => {
+cart2.addEventListener('click', () => {
     window.location.href = "../cart/cart.html";
 });
 
@@ -79,7 +79,6 @@ async function getFilter() {
     renderProducts(productList);
 }
 
-// Kategóriák megjelenítése
 function renderCategories(categoryList) {
     row.innerHTML = '';
 
@@ -87,13 +86,11 @@ function renderCategories(categoryList) {
         const catDiv = document.createElement('div');
         catDiv.classList.add('category');
 
-        // Kép hozzáadása
         const catImage = document.createElement('img');
         catImage.src = `/uploads/${category.image}`;
         catImage.alt = 'category';
         catDiv.append(catImage);
 
-        // Kategória neve
         const catSpan = document.createElement('span');
         catSpan.textContent = category.category;
         catSpan.classList.add('category-name');
@@ -101,23 +98,18 @@ function renderCategories(categoryList) {
 
         row.append(catDiv);
 
-        // Ha ez a kiválasztott kategória, adjunk neki "selected" osztályt
         if (selectedCategory === category.category_id) {
             catDiv.classList.add('selected');
         }
 
-        // Kattintás esemény
         catDiv.addEventListener('click', () => {
             if (selectedCategory === category.category_id) {
-                selectedCategory = null; // Ha már ki van választva, töröljük
+                selectedCategory = null;
             } else {
                 selectedCategory = category.category_id;
             }
 
-            // Frissítjük a kategóriák megjelenését
             renderCategories(categoryList);
-
-            // Frissítjük a termékeket
             getFilter();
         });
     });
@@ -131,7 +123,6 @@ function renderBrands(brandList) {
         const brandDiv = document.createElement('div');
         brandDiv.classList.add('brand');
 
-        // Márka neve
         const brandSpan = document.createElement('span');
         brandSpan.textContent = brand.brand;
         brandSpan.classList.add('brandSpan');
@@ -139,23 +130,17 @@ function renderBrands(brandList) {
         brandDiv.append(brandSpan);
         rowbrand.append(brandDiv);
 
-        // Ha ez a kiválasztott márka, adjunk neki "selected" osztályt
         if (selectedBrand === brand.brand_id) {
             brandDiv.classList.add('selected');
         }
 
-        // Kattintás esemény
         brandDiv.addEventListener('click', () => {
             if (selectedBrand === brand.brand_id) {
-                selectedBrand = null; // Ha már ki van választva, töröljük
+                selectedBrand = null;
             } else {
                 selectedBrand = brand.brand_id;
             }
-
-            // Frissítjük a márkák megjelenését
             renderBrands(brandList);
-
-            // Frissítjük a termékeket
             getFilter();
         });
     });
@@ -187,15 +172,13 @@ function renderProducts(productList) {
         `;
 
         productDiv.addEventListener('click', () => {
-            renderSelectedProduct(product.product_id);  // Meghívjuk a globálisan elérhető renderSelectedProduct függvényt
+            renderSelectedProduct(product.product_id);
         });
 
         if (!IsItSelected) {
             productContainer.append(productDiv);
         }
     });
-
-    // Add event listeners for the cart buttons
     const cartIcons = document.querySelectorAll('.fa-cart-shopping');
     cartIcons.forEach(icon => {
         icon.addEventListener('click', (event) => {
