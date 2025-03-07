@@ -175,6 +175,7 @@ nav a {
     height: auto;
     text-align: center;
     justify-content: center;
+    margin: auto;
 }
 .cart-summary {
     margin-top: 20px;
@@ -186,6 +187,7 @@ nav a {
 .cart-item span{
     text-align: center;
     justify-content: center;
+    margin: auto;
 }
 
 .cart-item input{
@@ -214,10 +216,10 @@ nav a {
 }
 
 .trash{
-    margin: 5px 0 5px 0;
+    margin: 5px auto 5px auto;
     font-size: 25px;
-    text-align: center;
-    justify-content: center;
+    text-align: right;
+    justify-content: right;
 }
 
 .trash:hover{
@@ -227,15 +229,26 @@ nav a {
 @media screen and (max-width: 520px) {
     .cart-item{
         flex-direction: column;
+        text-align: center;
+        justify-content: center;
     }
     .cart-summary{
         flex-direction: column;
+        text-align: center;
+        justify-content: center;
     }
     .quantity{
         flex-direction: column;
+        text-align: center;
+        justify-content: center;
     }
     .cart-item span{
-        text-align: center
+        text-align: center;
+        justify-content: center;
+    }
+    .trash{
+        text-align: center;
+        justify-content: center;
     }
 }
 
