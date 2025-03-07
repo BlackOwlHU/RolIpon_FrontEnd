@@ -52,9 +52,9 @@ function renderCart(cartData) {
                 <img src="/uploads/${item.image}" alt="/uploads/${item.image}">
                 <span>${item.product_name}</span>
                 <div class="quantity">
-                    <button class="quantityMinus" onclick="quantity(${item.cart_items_id},-1)">-</button>
+                    <button class="quantityMinus" onclick="quantity(event, ${item.cart_items_id}, -1)">-</button>
                     <input value="${item.quantity}" min="1" max="1000">
-                    <button class="quantityPlus" onclick="quantity(${item.cart_items_id},1)">+</button>
+                    <button class="quantityPlus" onclick="quantity(event, ${item.cart_items_id}, 1)">+</button>
                 </div>
                 <span>${item.total_price}</span>
                 <i class="fa-solid fa-trash trash" data-cart-id="${item.cart_items_id}"></i>
@@ -140,26 +140,26 @@ window.checkout = function() {
     window.location.href = '../cart/order.html';
 }
 
-window.quantity = function(cart_items_id ,vonas){
-    const quantity = document.querySelector('.quantity input');
-    let quantityValue = parseInt(quantity.value);
+window.quantity = function(event, cart_items_id, vonas) {
+    const quantityInput = event.target.closest('.quantity').querySelector('input');
+    let quantityValue = parseInt(quantityInput.value);
     let min = 1;
     quantityValue += vonas;
-    quantity.value = quantityValue;
-    if(quantityValue < min){
-        quantity.value = min;
+    quantityInput.value = quantityValue;
+    if (quantityValue < min) {
+        quantityInput.value = min;
     }
-    priceRefresh(cart_items_id ,quantity.value);
+    priceRefresh(cart_items_id, quantityInput.value);
 }
 
-async function priceRefresh(cart_items_id ,quantity) {
+async function priceRefresh(cart_items_id, quantity) {
     const res = await fetch(`/api/cart/putQuantity/${cart_items_id}`, {
         method: 'PUT',
         credentials: 'include',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({quantity})
+        body: JSON.stringify({ quantity })
     });
 
     if (res.ok) {

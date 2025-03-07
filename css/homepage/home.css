@@ -251,6 +251,10 @@ nav a {
 }
 
 .cart:hover{
+    cursor: pointer;
+}
+
+.cart:hover{
     transform: scale(1.05);
 }
 
