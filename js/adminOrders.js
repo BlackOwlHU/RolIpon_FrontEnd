@@ -5,21 +5,22 @@ const orders = document.getElementById('Orders');
 const products = document.getElementById('Products');
 const category = document.getElementById('Category');
 const Brand = document.getElementById('Brand');
+const orderContainer = document.querySelector('.container.row');
 
 Brand.addEventListener('click', () => {
-    window.location.href="../admin/adminBrand.html";
+    window.location.href = "../admin/adminBrand.html";
 });
 
 category.addEventListener('click', () => {
-    window.location.href="../admin/adminCategory.html";
+    window.location.href = "../admin/adminCategory.html";
 });
 
 orders.addEventListener('click', () => {
-    window.location.href="../admin/admin.html";
+    window.location.href = "../admin/admin.html";
 });
 
 products.addEventListener('click', () => {
-    window.location.href="../admin/adminProduct.html";
+    window.location.href = "../admin/adminProduct.html";
 });
 
 iconLogout.addEventListener('click', logout);
@@ -41,3 +42,60 @@ async function logout() {
         });
     }
 };
+
+document.addEventListener('DOMContentLoaded', loadOrders);
+
+async function loadOrders() {
+    try {
+        const ordersRes = await fetch('/api/getAllOrders', {
+            method: 'GET',
+            credentials: 'include'
+        });
+        const orders = await ordersRes.json();
+
+        const itemsRes = await fetch('/api/getAllOrdersItems', {
+            method: 'GET',
+            credentials: 'include'
+        });
+        const items = await itemsRes.json();
+
+        if (ordersRes.ok && itemsRes.ok) {
+            renderOrders(orders, items);
+        } else {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Hiba történt az adatok lekérése során",
+                draggable: false
+            });
+        }
+    } catch (error) {
+        console.error('Hiba történt:', error);
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Hiba történt az adatok lekérése során",
+            draggable: false
+        });
+    }
+}
+
+function renderOrders(orders, items) {
+    orderContainer.innerHTML = '';
+
+    orders.forEach(order => {
+        const orderItems = items.filter(item => item.order_id === order.order_id);
+        const orderElement = document.createElement('div');
+        orderElement.classList.add('order', 'card');
+        orderElement.innerHTML = `
+            <strong>${order.firstname} ${order.surname}</strong>
+            ${orderItems.map(item => `<span>${item.product_name} - ${item.quantity} db</span>`).join('')}
+            <span>${order.city}</span>
+            <span>${order.postcode}</span>
+            <span>${order.address}</span>
+            <span>${order.order_date}</span>
+            <span>Összeg: ${order.total_amount} Ft</span>
+        `;
+        orderContainer.appendChild(orderElement);
+    });
+}
