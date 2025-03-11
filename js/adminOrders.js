@@ -65,7 +65,7 @@ async function loadOrders() {
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
-                text: "Hiba történt az adatok lekérése során",
+                text: `${orders.error} ${items.error}`,
                 draggable: false
             });
         }
