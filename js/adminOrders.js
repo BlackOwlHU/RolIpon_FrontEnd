@@ -47,13 +47,13 @@ document.addEventListener('DOMContentLoaded', loadOrders);
 
 async function loadOrders() {
     try {
-        const ordersRes = await fetch('/api/orders/getAllOrders', {
+        const ordersRes = await fetch('/api/order/getAllOrders', {
             method: 'GET',
             credentials: 'include'
         });
         const orders = await ordersRes.json();
 
-        const itemsRes = await fetch('/api/orders/getAllOrdersItems', {
+        const itemsRes = await fetch('/api/order/getAllOrdersItems', {
             method: 'GET',
             credentials: 'include'
         });
