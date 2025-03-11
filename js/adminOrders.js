@@ -5,7 +5,7 @@ const orders = document.getElementById('Orders');
 const products = document.getElementById('Products');
 const category = document.getElementById('Category');
 const Brand = document.getElementById('Brand');
-const orderContainer = document.querySelector('.container.row');
+const orderContainer = document.querySelector('orderCont');
 
 Brand.addEventListener('click', () => {
     window.location.href = "../admin/adminBrand.html";
