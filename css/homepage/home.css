@@ -598,6 +598,10 @@ button:hover{
     font-weight: bold;
 }
 
+#search-bar:active{
+    border: 3px solid #0091ff;
+}
+
 .search-cont{
     background-color: rgb(244, 244, 244);
 }
