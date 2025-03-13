@@ -588,3 +588,8 @@ button:hover{
 .info{
     padding-bottom: 15px;
 }
+
+#search-bar{
+    width: max-content;
+    margin: auto;
+}
