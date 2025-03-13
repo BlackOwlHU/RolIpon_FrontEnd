@@ -122,7 +122,6 @@ nav a {
 
 .container{
     width: 100%;
-    max-width: 1800px;
     margin: 0 auto;
     padding: 10px;
 }
@@ -590,11 +589,15 @@ button:hover{
 }
 
 #search-bar{
-    width: auto;
+    width: 100%;
     margin: auto;
     text-align: center;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 15px;
+    font-weight: bold;
 }
 
 .search-cont{
-    background-color: rgb(176, 219, 255);
+    background-color: rgb(244, 244, 244);
 }
