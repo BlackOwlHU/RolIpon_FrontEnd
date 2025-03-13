@@ -144,14 +144,14 @@ async function renderProducts(productList) {
             </div>
         `;
     }
-}
 
-document.querySelectorAll('.trash').forEach(icon => {
-    icon.addEventListener('click', async (event) => {
-        const productId = event.target.getAttribute('data-product-id');
-        await deleteProduct(productId);
+    document.querySelectorAll('.trash').forEach(icon => {
+        icon.addEventListener('click', async (event) => {
+            const productId = event.target.getAttribute('data-product-id');
+            await deleteProduct(productId);
+        });
     });
-});
+}
 
 async function deleteProduct(productId) {
     const res = await fetch(`/api/products/deleteProduct`, {
