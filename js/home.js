@@ -5,6 +5,7 @@ const iconHome = document.getElementsByClassName('icon-home')[0];
 const menulogo = document.getElementsByClassName('menu-logo')[0];
 const iconLogout = document.getElementsByClassName('icon-logout')[0];
 const cart2 = document.getElementsByClassName('cart2')[0];
+const searchBar = document.getElementById('search-bar');
 
 const row = document.getElementsByClassName('row-category')[0];
 const rowbrand = document.getElementsByClassName('row-brand')[0];
@@ -13,6 +14,7 @@ var IsItSelected = false;
 
 let selectedCategory = null;
 let selectedBrand = null;
+let searchQuery = '';
 
 window.addEventListener('DOMContentLoaded', () => {
     getCategories();
@@ -44,6 +46,12 @@ async function logout() {
     }
 };
 
+// Searchbar lekérdezés
+searchBar.addEventListener('input', (event) => {
+    searchQuery = event.target.value;
+    getFilter();
+});
+
 // Lekéri a kategóriákat
 async function getCategories() {
     const res = await fetch('/api/filter/category', {
@@ -67,8 +75,9 @@ async function getBrands() {
 async function getFilter() {
     const brandParam = selectedBrand || 0;
     const categoryParam = selectedCategory || 0;
+    const searchParam = searchQuery || '';
 
-    const url = `/api/products/getProducts/${brandParam}/${categoryParam}`;
+    const url = `/api/products/getProducts/${brandParam}/${categoryParam}?search=${searchParam}`;
 
     const res = await fetch(url, {
         method: 'GET',
