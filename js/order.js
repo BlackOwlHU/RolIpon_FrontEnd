@@ -68,7 +68,7 @@ async function sendOrder(cart_id) {
                 icon: "success",
                 draggable: false
             }).then(() => {
-                window.location.href = "../homepage/home.html"; // Visszanavigál a főoldalra
+                window.location.href = "../homepage/home.html";
             });
         } else {
             Swal.fire({
@@ -127,7 +127,6 @@ async function loadData() {
 }
 
 function renderCurrentData(data) {
-    // HTML elemek kiválasztása
     document.getElementById('firstname').value = data.firstname || "";
     document.getElementById('surname').value = data.surname || "";
     document.getElementById('city').value = data.city || "";

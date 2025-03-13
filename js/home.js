@@ -209,7 +209,7 @@ async function renderSelectedProduct(product_id) {
     IsItSelected = true;
 
     const productDivPage = document.getElementsByClassName('product-page-div')[0];
-    productDivPage.innerHTML = ''; // Az előző termék adatait töröljük
+    productDivPage.innerHTML = '';
 
     const res = await fetch(`/api/products/thisProduct/${product_id}`, {
         method: 'GET',
@@ -248,10 +248,8 @@ async function renderSelectedProduct(product_id) {
     </div>
 `;
 
-        // A "Vissza" gomb eseménykezelése
         document.querySelector('.back').addEventListener('click', BackToMain);
 
-        // Kosárba tétel eseménykezelése
         document.querySelector('.buy-button').addEventListener('click', (event) => {
             const productId = event.target.getAttribute('data-product-id');
             const quantity = event.target.getAttribute('data-quantity');
@@ -303,7 +301,7 @@ window.BackToMain = function () {
     getFilter();
 };
 
-// A termékhez való kosárba helyezés eseménykezelése
+// A termék kosárba helyezése
 document.querySelectorAll('.buy-button').forEach(button => {
     button.addEventListener('click', (event) => {
         const productId = event.target.getAttribute('data-product-id');
@@ -312,7 +310,7 @@ document.querySelectorAll('.buy-button').forEach(button => {
     });
 });
 
-// Visszalépés az alap termékekhez
+// Visszalépés a termékekhez
 document.querySelectorAll('.back').forEach(backButton => {
     backButton.addEventListener('click', () => {
         BackToMain();

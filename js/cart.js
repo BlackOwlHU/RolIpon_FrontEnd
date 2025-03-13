@@ -43,8 +43,7 @@ function renderCart(cartData) {
     cartDiv.innerHTML = '';
     vegosszeg = parseFloat(0);
     cartDiv.innerHTML += `<h2>Kosár</h2>`;
-    
-    // A kosárban lévő elemek törlésének eseménykezelése
+
     cartData.forEach(item => {
         vegosszeg += parseFloat(item.total_price);
         cartDiv.innerHTML += `
@@ -66,7 +65,6 @@ function renderCart(cartData) {
             <a href="#" class="checkout-btn">Tovább a pénztárhoz</a>
         </div>`;
     
-    // Ellenőrizd, hogy van-e checkout gomb, mielőtt hozzáadod az eseménykezelőt
     const checkoutBtn = document.querySelector('.checkout-btn');
     if (checkoutBtn) {
         checkoutBtn.addEventListener('click', () => {
@@ -74,7 +72,6 @@ function renderCart(cartData) {
         });
     }
 
-    // A törlés gomb eseménykezelése
     document.querySelectorAll('.trash').forEach(trashIcon => {
         trashIcon.addEventListener('click', (event) => {
             const cartItemId = event.target.getAttribute('data-cart-id');
@@ -83,7 +80,6 @@ function renderCart(cartData) {
     });
 }
 
-// Globálissá tesszük a függvényeket
 window.deleteFromCart = async function(cart_items_id) {
     const res = await fetch(`/api/cart/removeCart/${cart_items_id}`, {
         method: 'DELETE',

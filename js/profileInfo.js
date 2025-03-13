@@ -28,7 +28,6 @@ async function loadData() {
 }
 
 function renderCurrentData(data) {
-    // HTML elemek kiválasztása
     document.getElementById('username').value = data.username || "";
     document.getElementById('firstname').value = data.firstname || "";
     document.getElementById('surname').value = data.surname || "";

@@ -54,12 +54,11 @@ function formatDate(dateString) {
 
 async function loadOrdersToPage(orders) {
     const rowContainer = document.querySelector('.row');
-    rowContainer.innerHTML = ""; // Korábbi tartalom törlése
+    rowContainer.innerHTML = "";
 
     for (const order of orders) {
         const order_id = order.order_id;
 
-        // Rendeléshez tartozó termékek lekérése
         const res = await fetch(`/api/order/orderedItems/${order_id}`, {
             method: 'GET',
             credentials: 'include'
@@ -85,7 +84,6 @@ async function loadOrdersToPage(orders) {
         `;
     }
 
-    // Törlés eseménykezelő hozzárendelése az ikonokhoz
     document.querySelectorAll('.trash').forEach(icon => {
         icon.addEventListener('click', async (event) => {
             const orderId = event.target.getAttribute('data-order-id');
@@ -104,7 +102,7 @@ async function deleteOrder(orderId) {
 
         if (res.ok) {
             Swal.fire("Siker!", "A rendelés törölve lett.", "success");
-            loadOrders(); // Frissítés törlés után
+            loadOrders();
         } else {
             Swal.fire("Hiba!", "A rendelés törlése nem sikerült.", "error");
         }
