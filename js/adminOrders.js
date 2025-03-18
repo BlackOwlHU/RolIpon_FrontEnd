@@ -100,7 +100,33 @@ function renderOrders(orders, items) {
                 <li><span>${order.order_date}</span></li>
                 <li><span>Összeg: ${order.total_amount} Ft</span></li>
             </ul>
+            <i class="fa-solid fa-trash trash data" data-order-id="${order.order_id}"></i>
         `;
         orderContainer.appendChild(orderElement);
     });
+
+    document.querySelectorAll('.trash').forEach(icon => {
+        icon.addEventListener('click', async (event) => {
+            const orderId = event.target.getAttribute('data-order-id');
+            await deleteOrder(orderId);
+        });
+    });
+}
+
+async function deleteOrder(orderId) {
+    try {
+        const res = await fetch(`/api/order/deleteOrder/${orderId}`, {
+            method: 'DELETE',
+            credentials: 'include'
+        });
+
+        if (res.ok) {
+            Swal.fire("Siker!", "A rendelés törölve lett.", "success");
+            loadOrders();
+        } else {
+            Swal.fire("Hiba!", "A rendelés törlése nem sikerült.", "error");
+        }
+    } catch (error) {
+        console.error('Hiba a törlés közben:', error);
+    }
 }
