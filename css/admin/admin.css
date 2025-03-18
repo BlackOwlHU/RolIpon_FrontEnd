@@ -296,7 +296,7 @@ nav a {
 .order {
     display: flex;
     flex-direction: column;
-    padding: 15px;
+    padding: 2rem;
 }
 
 input, select{
@@ -354,5 +354,5 @@ button:hover{
 
 li{
     margin: auto;
-    padding: 1rem;
+    padding-top: 1rem;
 }
