@@ -351,3 +351,8 @@ input, select{
 button:hover{
     cursor: pointer;
 }
+
+li{
+    margin: auto;
+    padding: 1rem;
+}

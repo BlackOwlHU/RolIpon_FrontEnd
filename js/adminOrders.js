@@ -88,8 +88,9 @@ function renderOrders(orders, items) {
         const orderElement = document.createElement('div');
         orderElement.classList.add('order', 'card');
         orderElement.innerHTML = `
+            <strong>${order.firstname} ${order.surname}</strong>
             <ul>
-                <li><strong>${order.firstname} ${order.surname}</strong></li>
+                <span>Rendelt termékek:</span>
                 <ol>
                 ${orderItems.map(item => `<li>${item.product_name} - ${item.quantity} db</li>`).join('')}
                 </ol>
