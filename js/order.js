@@ -45,6 +45,8 @@ async function getCartId() {
 
 async function sendOrder(cart_id) {
     try {
+        const firstname = document.getElementById('firstname').value;
+        const surname = document.getElementById('surname').value;
         const city = document.getElementById('city').value;
         const address = document.getElementById('address').value;
         const postcode = document.getElementById('postcode').value;
@@ -57,7 +59,7 @@ async function sendOrder(cart_id) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ city, address, postcode, tel })
+            body: JSON.stringify({ city, address, postcode, tel, firstname, surname })
         });
 
         const data = await res.json();
