@@ -88,13 +88,17 @@ function renderOrders(orders, items) {
         const orderElement = document.createElement('div');
         orderElement.classList.add('order', 'card');
         orderElement.innerHTML = `
-            <strong>${order.firstname} ${order.surname}</strong>
-            ${orderItems.map(item => `<span>${item.product_name} - ${item.quantity} db</span>`).join('')}
-            <span>${order.city}</span>
-            <span>${order.postcode}</span>
-            <span>${order.address}</span>
-            <span>${order.order_date}</span>
-            <span>Összeg: ${order.total_amount} Ft</span>
+            <ul>
+                <li><strong>${order.firstname} ${order.surname}</strong></li>
+                <ol>
+                ${orderItems.map(item => `<li>${item.product_name} - ${item.quantity} db</li>`).join('')}
+                </ol>
+                <li><span>${order.city}</span></li>
+                <li><span>${order.postcode}</span></li>
+                <li><span>${order.address}</span></li>
+                <li><span>${order.order_date}</span></li>
+                <li><span>Összeg: ${order.total_amount} Ft</span></li>
+            </ul>
         `;
         orderContainer.appendChild(orderElement);
     });
