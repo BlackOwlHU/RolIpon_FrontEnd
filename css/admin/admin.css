@@ -276,7 +276,7 @@ nav a {
 
 @media screen and (max-width: 450px) {
     .card{
-        flex: 0 1 calc((100% - 10px) / 2);
+        flex: 0 1 calc((100% - 10px) / 1);
         width: 160px;
     }
 }
