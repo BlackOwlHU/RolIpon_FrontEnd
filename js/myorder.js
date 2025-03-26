@@ -77,6 +77,7 @@ async function loadOrdersToPage(orders) {
                     <div class="data">${order.city}</div>
                     <div class="data">${order.postcode}</div>
                     <div class="data">${order.address}</div>
+                    <div class="data">${order.tel}</div>
                 </div>
                 <div class="data">${formatDate(order.order_date)}</div>
                 <i class="fa-solid fa-trash trash data" data-order-id="${order.order_id}"></i>
