@@ -132,20 +132,20 @@ async function renderUpdateProductForm(productId) {
             <div class="container column">
                 <h2 id='backToProducts'>Vissza a termékekhez.</h2>
                 <label for="name">Termék neve</label>
-                <input type="text" id="name" value="${product.product_name || ''}">
+                <input type="text" id="name" value="${product[0].product_name || ''}">
                 <label for="price">Ára</label>
-                <input type="number" id="price" value="${product.price || ''}">
+                <input type="number" id="price" value="${product[0].price || ''}">
                 <label for="typeStock">Elérhető</label>
                 <select id="typeStock">
-                    <option value="1" ${product.is_in_stock == 1 ? 'selected' : ''}>Igen</option>
-                    <option value="0" ${product.is_in_stock == 0 ? 'selected' : ''}>Nem</option>
+                    <option value="1" ${product[0].is_in_stock == 1 ? 'selected' : ''}>Igen</option>
+                    <option value="0" ${product[0].is_in_stock == 0 ? 'selected' : ''}>Nem</option>
                 </select>
                 <label for="typeBrand">Márka</label>
                 <select id="typeBrand"></select>
                 <label for="typeCategory">Kategória</label>
                 <select id="typeCategory"></select>
                 <label for="description">Leírás</label>
-                <textarea id="description" rows="4">${product.description || ''}</textarea>
+                <textarea id="description" rows="4">${product[0].description || ''}</textarea>
                 <label for="image">Kép feltöltése</label>
                 <input type="file" id="image" accept="image/*">
                 <button id="updateProduct">Termék frissítése</button>
@@ -153,12 +153,12 @@ async function renderUpdateProductForm(productId) {
 
         const categorySelect = document.getElementById('typeCategory');
         for (const cat of categoryList) {
-            categorySelect.innerHTML += `<option value="${cat.category_id}" ${cat.category_id == product.category_id ? 'selected' : ''}>${cat.category}</option>`;
+            categorySelect.innerHTML += `<option value="${cat.category_id}" ${cat.category_id == product[0].category_id ? 'selected' : ''}>${cat.category}</option>`;
         }
 
         const brandSelect = document.getElementById('typeBrand');
         for (const brand of brandList) {
-            brandSelect.innerHTML += `<option value="${brand.brand_id}" ${brand.brand_id == product.brand_id ? 'selected' : ''}>${brand.brand}</option>`;
+            brandSelect.innerHTML += `<option value="${brand.brand_id}" ${brand.brand_id == product[0].brand_id ? 'selected' : ''}>${brand.brand}</option>`;
         }
 
         document.getElementById('backToProducts').addEventListener('click', getProducts);
