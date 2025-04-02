@@ -51,6 +51,7 @@ async function sendOrder(cart_id) {
         const address = document.getElementById('address').value;
         const postcode = document.getElementById('postcode').value;
         const tel = document.getElementById('tel').value;
+        const email = document.getElementById('email').value;
         //console.log(city, address, postcode, tel);
 
         const res = await fetch(`/api/order/createOrder/${cart_id}`, {
@@ -59,7 +60,7 @@ async function sendOrder(cart_id) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ city, address, postcode, tel, firstname, surname })
+            body: JSON.stringify({ city, address, postcode, tel, firstname, surname, email })
         });
 
         const data = await res.json();
