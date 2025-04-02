@@ -112,6 +112,8 @@ async function renderUpdateProductForm(productId) {
     });
     const product = await productRes.json();
 
+    console.log('Product:', product);
+
     const categoryRes = await fetch('/api/filter/category', {
         method: 'GET',
         credentials: 'include'
@@ -130,9 +132,9 @@ async function renderUpdateProductForm(productId) {
             <div class="container column">
                 <h2 id='backToProducts'>Vissza a termékekhez.</h2>
                 <label for="name">Termék neve</label>
-                <input type="text" id="name" value="${product.product_name}">
+                <input type="text" id="name" value="${product.product_name || ''}">
                 <label for="price">Ára</label>
-                <input type="number" id="price" value="${product.price}">
+                <input type="number" id="price" value="${product.price || ''}">
                 <label for="typeStock">Elérhető</label>
                 <select id="typeStock">
                     <option value="1" ${product.is_in_stock == 1 ? 'selected' : ''}>Igen</option>
@@ -143,19 +145,18 @@ async function renderUpdateProductForm(productId) {
                 <label for="typeCategory">Kategória</label>
                 <select id="typeCategory"></select>
                 <label for="description">Leírás</label>
-                <textarea id="description" rows="4">${product.description}</textarea>
+                <textarea id="description" rows="4">${product.description || ''}</textarea>
                 <label for="image">Kép feltöltése</label>
                 <input type="file" id="image" accept="image/*">
                 <button id="updateProduct">Termék frissítése</button>
             </div>`;
 
         const categorySelect = document.getElementById('typeCategory');
-        const brandSelect = document.getElementById('typeBrand');
-
         for (const cat of categoryList) {
             categorySelect.innerHTML += `<option value="${cat.category_id}" ${cat.category_id == product.category_id ? 'selected' : ''}>${cat.category}</option>`;
         }
 
+        const brandSelect = document.getElementById('typeBrand');
         for (const brand of brandList) {
             brandSelect.innerHTML += `<option value="${brand.brand_id}" ${brand.brand_id == product.brand_id ? 'selected' : ''}>${brand.brand}</option>`;
         }
