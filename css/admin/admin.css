@@ -344,6 +344,22 @@ input, select{
     cursor: pointer;
 }
 
+.modify{
+    font-size: 2rem;
+    background-color: #0091ff;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.modify:hover{
+    cursor: pointer;
+}
+
 .column h2{
     cursor: pointer;
 }
