@@ -68,7 +68,9 @@ async function loadOrdersToPage(orders) {
 
         rowContainer.innerHTML += `
             <div class="order">
-                <div class="data"><strong>${order.firstname} ${order.surname}</strong></div>
+                <div class="data"><strong>${order.firstname} ${order.surname}</strong>
+                <strong>${order.email}</strong>
+                </div>
                 <div class="products data">
                     ${orderItems.map(item => `<span>${item.product_name} - ${item.quantity} db</span>`).join('')}
                     <span>${order.total_amount} Ft</span>

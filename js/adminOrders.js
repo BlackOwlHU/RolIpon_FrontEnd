@@ -89,6 +89,7 @@ function renderOrders(orders, items) {
         orderElement.classList.add('order', 'card');
         orderElement.innerHTML = `
             <strong>${order.firstname} ${order.surname}</strong>
+            <strong>${order.email}</strong>
             <ul>
                 <span>Rendelt termékek:</span>
                 <ol>
