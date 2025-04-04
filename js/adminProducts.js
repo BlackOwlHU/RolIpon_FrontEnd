@@ -119,8 +119,6 @@ async function renderUpdateProductForm(productId) {
     });
     const product = await productRes.json();
 
-    console.log('Product:', product);
-
     const categoryRes = await fetch('/api/filter/category', {
         method: 'GET',
         credentials: 'include'
@@ -168,7 +166,11 @@ async function renderUpdateProductForm(productId) {
             brandSelect.innerHTML += `<option value="${brand.brand_id}" ${brand.brand_id == product[0].brand_id ? 'selected' : ''}>${brand.brand}</option>`;
         }
 
-        document.getElementById('backToProducts').addEventListener('click', getProducts);
+        document.getElementById('backToProducts').addEventListener('click', () => {
+            const currentSearchQuery = searchBar.value.trim();
+            getProducts(currentSearchQuery);
+        });
+
         document.getElementById('updateProduct').addEventListener('click', async () => {
             await updateProduct(productId);
         });
