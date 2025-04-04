@@ -10,8 +10,15 @@ const showNewProduct = document.getElementsByClassName('newProduct')[0];
 const showBrands = document.getElementsByClassName('brand-list')[0];
 const showNewBrand = document.getElementsByClassName('newBrand')[0];
 const newItem = document.getElementsByClassName('newItem')[0];
+const searchBar = document.getElementById('search-bar');
 
 newItem.addEventListener('click', () => { renderNewProductForm() });
+
+// Listen for input in the search bar
+searchBar.addEventListener('input', (event) => {
+    const searchQuery = event.target.value.trim();
+    getProducts(searchQuery);
+});
 
 async function renderNewProductForm() {
     showProducts.innerHTML = '';
@@ -224,8 +231,8 @@ document.addEventListener('DOMContentLoaded', () => {
     getProducts();
 });
 
-async function getProducts() {
-    const res = await fetch('/api/products/getProducts/0/0', {
+async function getProducts(searchQuery = '') {
+    const res = await fetch(`/api/products/getProducts/0/0?search=${searchQuery}`, {
         method: 'GET',
         credentials: 'include'
     });

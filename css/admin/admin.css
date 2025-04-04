@@ -372,3 +372,22 @@ li{
     margin: auto;
     padding-top: 1rem;
 }
+
+#search-bar{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 15px;
+    font-weight: bold;
+    border: 2px solid grey;
+}
+
+#search-bar:focus{
+    border: 3px solid #0091ff;
+}
+
+.search-cont{
+    background-color: rgb(244, 244, 244);
+}
