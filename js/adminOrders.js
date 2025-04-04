@@ -90,6 +90,7 @@ function renderOrders(orders, items) {
         orderElement.innerHTML = `
             <strong>${order.firstname} ${order.surname}</strong>
             <strong>${order.email}</strong>
+            <strong>${order.tel}</strong>
             <ul>
                 <span>Rendelt termékek:</span>
                 <ol>
