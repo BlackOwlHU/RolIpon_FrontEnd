@@ -61,3 +61,5 @@
 ## ⬇️ Telepítés
 
 ## 🛍️ Használat
+**Jelenleg elérhető netlify-on**
+| 🚀 Netlify | Netlify Deployed Page | [Megtekintés](https://rolipon.netlify.app/) |
