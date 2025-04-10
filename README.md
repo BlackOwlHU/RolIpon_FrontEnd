@@ -62,6 +62,6 @@
 
 ## 🛍️ Használat
 ```markdown
-**Jelenleg elérhető netlify-on**
+*Jelenleg elérhető netlify-on*
 | 🚀 Netlify | Netlify Deployed Page | [Megtekintés](https://rolipon.netlify.app/) |
 ```
