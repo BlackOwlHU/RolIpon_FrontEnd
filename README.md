@@ -62,9 +62,10 @@
 ## ⬇️ Telepítés
 
 ## 🛍️ Használat 
-- A felhasználó regisztrálása után saját fiókkal lehet az az online áruházat kinálatát elérni ahol kiválasztható márka, alkatresz vagy a könyebb es pontosabb keresés érdekébe e kettő együttes szűrés beállításával egyből elénk tárul a készleten lévő alkatrészek. 
-Viszont ha a vásárló egy kifejezett tipust keres, a kereső mezőbe való beírásával egyből kiadja neki azt. A kosárb megtekintésekor a felhasználó látja végösszeget is és tujda módosítani az esetleges termékek darabszámát a kosáron belül is. Majd a rendelés leadására 
-kattintva átdobja egy szállítási adatoka bekérő felületre ahol megadja a személyes adatait és a szállítás pontos utasításait és a fizetési módot és véglegesíthetzi a rendelését. A leadott rendelést a profil fülön belül a meg is tekintheti, mindezek mellett ott tudja
-módsoítani a jelszavát illetve a szállítás és profil adatait is. 
+- A regisztrációt követően a felhasználók saját fiókkal rendelkeznek, amelyen keresztül elérhetik az online áruház kínálatát. A termékek közötti keresést márka és alkatrész típus szerinti szűrők segítik, amelyek együttes alkalmazásával gyorsabban és pontosabban listázhatók a készleten lévő termékek. Amennyiben a vásárló konkrét típust keres, azt a keresőmezőbe beírva közvetlenül megjelenik a keresett alkatrész.
+
+- A kosár megtekintésekor a felhasználó átláthatja a rendelés végösszegét, valamint módosíthatja az egyes termékek mennyiségét. A „Rendelés leadása” gombra kattintva a rendszer egy űrlapra irányítja, ahol megadhatja a szállításhoz szükséges személyes adatokat, a pontos szállítási információkat, valamint kiválaszthatja a kívánt fizetési módot, majd véglegesítheti a rendelést.
+
+- A leadott rendelések a felhasználói profil felületén bármikor megtekinthetők. Ugyanitt lehetőség van a jelszó, valamint a szállítási és profiladatok módosítására is. 
 ### Jelenleg elérhető netlify-on
 | 🚀 Netlify | Netlify Deployed Page | [Megtekintés](https://rolipon.netlify.app/) |
