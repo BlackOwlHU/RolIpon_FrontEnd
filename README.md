@@ -62,6 +62,4 @@
 
 ## 🛍️ Használat
 ### Jelenleg elérhető netlify-on
-```markdown
 | 🚀 Netlify | Netlify Deployed Page | [Megtekintés](https://rolipon.netlify.app/) |
-```
