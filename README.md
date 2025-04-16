@@ -24,9 +24,19 @@
 │   └── order.html
 ├── css/
 │   ├── admin/
+│       └── admin.css
 │   ├── homepage/
+│       ├── cart.css
+│       ├── home.css
+│       └── order.css
 │   ├── profile/
+│       ├── orders.css
+│       ├── profile.css
+│       └── profileData.css
 │   └── relog/
+│       ├── index.css
+│       ├── login.css
+│       └── register.css
 ├── homepage/
 │   └── home.html
 ├── icons/
