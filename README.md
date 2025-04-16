@@ -4,7 +4,7 @@
 - [Bevezetés](#bevezetés)
 - [Szerkezet](#📁)
 - [Telepítés](#telepítés)
-- [Használat](#használat)
+- [Használat](#🛍️)
 - [Dokumentáció](#dokumentáció)
 
 ## 🏪 Bevezetés
