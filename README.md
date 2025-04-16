@@ -2,10 +2,10 @@
 
 ## 🗒️ Tartalomjegyzék
 
-- [Bevezetés](#bevezetés)
-- [Szerkezet](#projekt-szerkezet)
-- [Telepítés](#telepítés)
-- [Használat](#használat)
+- [Bevezetés](#Bevezetés)
+- [Szerkezet](#Projekt-Szerkezet)
+- [Telepítés](#Telepítés)
+- [Használat](#Használat)
 - [Dokumentáció](#dokumentáció)
 
 ## 🏪 Bevezetés
