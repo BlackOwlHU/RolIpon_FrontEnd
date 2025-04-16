@@ -1,12 +1,12 @@
-# 📒 RolIpon Backend Dokumentáció
+# 📒 RolIpon Frontend Dokumentáció
 
 ## 🗒️ Tartalomjegyzék
 
-- [Bevezetés](#Bevezetés)
-- [Szerkezet](#Projekt-Szerkezet)
-- [Telepítés](#Telepítés)
-- [Használat](#Használat)
-- [Dokumentáció](#dokumentáció)
+- [Bevezetés](#bevezetes)
+- [Szerkezet](#projekt-szerkezet)
+- [Telepítés](#telepites)
+- [Használat](#hasznalat)
+- [Dokumentáció](#dokumentacio)
 
 ## 🏪 Bevezetés
 - Egy olyan weboldal létrehozása volt a célunk amelyen számítógép alkatreszeket lehet vásárolni különböző szűrési lehetőségekkel ellátva annak érdekében, hogy mindenki megtalálja számára megfelelő ár-érték arányu alkatrészt minél gyorsabban és könyebben.
