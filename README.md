@@ -2,9 +2,9 @@
 
 ## 🗒️ Tartalomjegyzék
 - [Bevezetés](#bevezetés)
-- [Szerkezet](#📁)
+- [Szerkezet](#projekt-szerkezet)
 - [Telepítés](#telepítés)
-- [Használat](#🛍️)
+- [Használat](#használat)
 - [Dokumentáció](#dokumentáció)
 
 ## 🏪 Bevezetés
