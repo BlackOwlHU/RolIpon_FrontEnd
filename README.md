@@ -1,10 +1,10 @@
 # 📒 RolIpon Backend Dokumentáció
 
 ## 🗒️ Tartalomjegyzék
-- [Bevezetés](#🏪-bevezetés)
-- [Szerkezet](#📁-projekt-szerkezet)
-- [Telepítés](#⬇️-telepítés)
-- [Használat](#🛍️-használat)
+- [Bevezetés](#🏪bevezetés)
+- [Szerkezet](#📁projekt-szerkezet)
+- [Telepítés](#⬇️telepítés)
+- [Használat](#🛍️használat)
 - [Dokumentáció](#dokumentáció)
 
 ## 🏪 Bevezetés
