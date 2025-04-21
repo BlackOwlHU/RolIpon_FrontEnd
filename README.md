@@ -76,9 +76,30 @@
 
 - A kosár megtekintésekor a felhasználó átláthatja a rendelés végösszegét, valamint módosíthatja az egyes termékek mennyiségét. A „Rendelés leadása” gombra kattintva a rendszer egy űrlapra irányítja, ahol megadhatja a szállításhoz szükséges személyes adatokat, a pontos szállítási információkat, valamint kiválaszthatja a kívánt fizetési módot, majd véglegesítheti a rendelést.
 
-- A leadott rendelések a felhasználói profil felületén bármikor megtekinthetők. Ugyanitt lehetőség van a jelszó, valamint a szállítási és profiladatok módosítására is. 
+- A leadott rendelések a felhasználói profil felületén bármikor megtekinthetők. Ugyanitt lehetőség van a jelszó, valamint az előre betöltő szállítási és profiladatok módosítására is.
+ 
 #### Jelenleg elérhető netlify-on
 | 🚀 Netlify | Netlify Deployed Page | [Megtekintés](https://rolipon.netlify.app/) |
 
 ## Dokumentáció
-| Figma | Dizájnt készítő alkalmazás |[Megtekintés](https://www.figma.com/design/yAqSQYQFJ5mlWpcfQFCVwd/Webshop-Project?node-id=0-1&m=dev&t=p1kzDR2C5x8H02Be-1) |
+| 🎞️ Figma | Dizájnt készítő alkalmazás |[Megtekintés](https://www.figma.com/design/yAqSQYQFJ5mlWpcfQFCVwd/Webshop-Project?node-id=0-1&m=dev&t=p1kzDR2C5x8H02Be-1) |
+
+### Index.html
+
+- Ahhoz, hogy a vásárló tudjon vásárolni és megtekinthesse a termékeket. Regisztrálnia kell egy fiókkal és be kell jelentkeznie.
+
+![image](https://github.com/user-attachments/assets/3b66ebdd-2d26-43c6-9a20-155a28516900)
+
+### Register.html
+
+- Itt lehet regisztrálni felhasználót.
+
+![image](https://github.com/user-attachments/assets/efc97b96-cef4-4d06-8b08-a5288d8bd7b6)
+
+### Login.html
+
+- Itt lehet bejelentkezni, már létező felhasználói fiókkal.
+- Bejelentkezéskor történik egy ellenőrzés, hogy a bejelentkező fiók admin-e vagy nem.
+  Ha az az állítás igaz akkor az admin felületre dob az oldal, viszont ha nem akkor a felhasználói felületre.
+
+![image](https://github.com/user-attachments/assets/6dabb9d9-43be-4f8a-8e4f-eb5ddcc3b2b3)
