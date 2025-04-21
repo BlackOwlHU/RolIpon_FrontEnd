@@ -128,7 +128,7 @@
 
 ![image](https://github.com/user-attachments/assets/f84140a6-b550-4647-8a6e-705ec6c7b82f)![image](https://github.com/user-attachments/assets/08c8bc91-8572-48a6-b270-15d215afbf17)![image](https://github.com/user-attachments/assets/b996e2a7-355c-44fa-9c7b-c364a0c51585)![image](https://github.com/user-attachments/assets/0f616d2a-66a5-4039-8831-cc3e4fd99f1b)![image](https://github.com/user-attachments/assets/6bc45607-26f8-4fe6-b0a3-80898c3114d5)![image](https://github.com/user-attachments/assets/143a110d-91e6-48a6-9afd-a914abde5067)
 
-## 📇 Fejlesztési lehetüségek
+## 📇 Fejlesztési lehetőségek
 
 ```markdown
 - Admin felületen kezelni a felhasználókat.
