@@ -71,6 +71,9 @@
 ```
 
 ## ⬇️ Telepítés
+```markdown
+npm clone https://github.com/BlackOwlHU/RolIpon_FrontEnd.git (GitHub-ról letöltés)
+```
 
 ## 🛍️ Használat 
 - A regisztrációt követően a felhasználók saját fiókkal rendelkeznek, amelyen keresztül elérhetik az online áruház kínálatát. A termékek közötti keresést márka és alkatrész típus szerinti szűrők segítik, amelyek együttes alkalmazásával gyorsabban és pontosabban listázhatók a készleten lévő termékek. Amennyiben a vásárló konkrét típust keres, azt a keresőmezőbe beírva közvetlenül megjelenik a keresett alkatrész.
