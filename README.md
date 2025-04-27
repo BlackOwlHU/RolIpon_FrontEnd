@@ -72,7 +72,7 @@
 
 ## ⬇️ Telepítés
 ```markdown
-npm clone https://github.com/BlackOwlHU/RolIpon_FrontEnd.git (GitHub-ról letöltés)
+git clone https://github.com/BlackOwlHU/RolIpon_FrontEnd.git (GitHub-ról letöltés)
 ```
 
 ## 🛍️ Használat 
