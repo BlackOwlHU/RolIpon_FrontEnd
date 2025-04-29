@@ -85,6 +85,10 @@ git clone https://github.com/BlackOwlHU/RolIpon_FrontEnd.git (GitHub-ról letöl
 #### Jelenleg elérhető netlify-on
 | 🚀 Netlify | Netlify Deployed Page | [Megtekintés](https://rolipon.netlify.app/) |
 
+| Admin teszt | Admin: blackowlhu@gmail.com | Jelszó: madarazasz |
+
+| Felhasználó teszt | Felhasználó : rolnadmester@gmail.com | Jelszó: madarazasz14 |
+
 ## Dokumentáció
 | 🎞️ Figma | Dizájnt készítő alkalmazás |[Megtekintés](https://www.figma.com/design/yAqSQYQFJ5mlWpcfQFCVwd/Webshop-Project?node-id=0-1&m=dev&t=p1kzDR2C5x8H02Be-1) |
 
